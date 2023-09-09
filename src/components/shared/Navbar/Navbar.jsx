@@ -20,7 +20,7 @@ const Navbar = () => {
   ];
 
   return (
-    <div className="bg-black py-4 fixed top-0 z-50 w-full" style={{ fontFamily: "'Teko', sans-serif" }}>
+    <div className="bg-tranparent py-4 fixed top-0 z-50 w-full" style={{ fontFamily: "'Teko', sans-serif" }}>
       {/* Mobile Menu */}
       <div className="flex items-center justify-between mx-2 sm:mx-6 md:mx-10  lg:hidden ">
         <Link to="/">
@@ -75,7 +75,7 @@ const Navbar = () => {
                   <Link
                     to="/"
                     key={index}
-                    className="block px-4 py-2 mt-2 text-sm text-white hover:text-red text-[20px] font-light transition duration-300"
+                    className="block px-4 py-2 mt-2 text-white hover:text-red text-[20px] font-light transition duration-300"
                   >
                     <li>{menu}</li>
                   </Link>

@@ -6,6 +6,7 @@ export default {
       "red":"#ff1313",
       "white":"#FFFFFF",
       "black":"#000000",
+      "gray":"#c4c4c4",
     },
     extend: {},
   },
