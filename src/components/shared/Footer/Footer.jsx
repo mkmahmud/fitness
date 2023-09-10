@@ -77,28 +77,28 @@ const Footer = () => {
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaFacebookF className="text-gray font-[1rem]" />
+                <FaFacebookF className="text-gray text-[1.3rem] hover:text-orange" />
               </a>
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaXTwitter className="text-gray font-[1rem]" />
+                <FaXTwitter className="text-gray text-[1.3rem] hover:text-orange" />
               </a>
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaInstagram className="text-gray font-[1rem]" />
+                <FaInstagram className="text-gray text-[1.3rem] hover:text-orange" />
               </a>
               <a
                 href="https://www.facebook.com/"
                 target="_blank"
                 rel="noreferrer"
               >
-                <FaGlobe className="text-gray font-[1rem]" />
+                <FaGlobe className="text-gray text-[1.3rem] hover:text-orange" />
               </a>
             </div>
           </div>
