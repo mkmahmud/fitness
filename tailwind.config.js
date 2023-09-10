@@ -10,6 +10,8 @@ export default {
       orange: "#f04e3c",
       blackGray: "#212025",
       sky: "#f7fdff",
+      blue:"#112957",
+      whiteGray:"#e9f0f4",
     },
     extend: {},
   },
