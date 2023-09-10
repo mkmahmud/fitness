@@ -2,6 +2,8 @@ import React from "react";
 import footerImage from "../../../assets/footer/footer.png";
 import footerLogo from "../../../assets/logo/logo2_footer.png";
 import { Link } from "react-router-dom";
+import { FaFacebookF, FaInstagram, FaGlobe } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 
 const Footer = () => {
   // styles
@@ -69,6 +71,36 @@ const Footer = () => {
               GThe trade war currently ensuing between te US anfd several
               natxions around thdhe globe, most fiercely with.
             </p>
+            <div className="flex  space-x-4">
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaFacebookF className="text-gray font-[1rem]" />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaXTwitter className="text-gray font-[1rem]" />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaInstagram className="text-gray font-[1rem]" />
+              </a>
+              <a
+                href="https://www.facebook.com/"
+                target="_blank"
+                rel="noreferrer"
+              >
+                <FaGlobe className="text-gray font-[1rem]" />
+              </a>
+            </div>
           </div>
         </div>
         <div className="my-10  border-t-2 border-gray">
