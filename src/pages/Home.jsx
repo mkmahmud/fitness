@@ -5,7 +5,23 @@ import { FaPlay } from "react-icons/fa";
 import aboutImage from "../assets/gallery/about.png";
 import serviceImage from "../assets/gallery/service.png";
 import ServiceCard from "../components/ServiceCard/ServiceCard";
-import { FaDumbbell, FaHeartbeat, FaICursor } from "react-icons/fa";
+import {
+  FaDumbbell,
+  FaHeartbeat,
+  FaICursor,
+  FaArrowLeft,
+  FaArrowRight,
+} from "react-icons/fa";
+import FeedbackImage from "../assets/gallery/feedback.png";
+import qutaion from "../assets/gallery/qutaion.png";
+import ClientReviewCard from "../components/ClientReviewCard/ClientReviewCard";
+import gellary1 from "../assets/gallery/gallery1.png";
+import gellary2 from "../assets/gallery/gallery2.png";
+import gellary3 from "../assets/gallery/gallery3.png";
+import TrainnerCard from "../components/TrainnerCard/TrainnerCard";
+import team1 from "../assets/gallery/team1.png";
+import team2 from "../assets/gallery/team2.png";
+import team3 from "../assets/gallery/team3.png";
 
 const Home = () => {
   return (
@@ -124,6 +140,92 @@ const Home = () => {
             path="/"
             content="Discover more About us"
           ></ServiceCard>
+        </div>
+      </div>
+      {/* Feedback Section */}
+      <div class="my-20 lg:flex items-center justify-between xl:my-40">
+        <div className="px-5 lg:w-1/2">
+          <img
+            className="block mx-auto"
+            src={FeedbackImage}
+            alt="Fitness one Feedback"
+          />
+        </div>
+        <div className="py-10 px-4 md:px-10 lg:w-1/2">
+          <div className="flex items-center">
+            <div className="h-[1px] w-[100px] bg-orange"></div>
+            <p className=" pl-10 uppercase text-orange text-[14px]">
+              Client Feedback
+            </p>
+          </div>
+          <h2
+            className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
+            style={{ fontFamily: "'Teko', sans-serif" }}
+          >
+            What Our Client thik about our gym
+          </h2>
+          <div>
+            <ClientReviewCard></ClientReviewCard>
+            <div className="flex text-orange my-10">
+              <FaArrowLeft className="mx-2" />
+              <FaArrowRight className="mx-2" />
+            </div>
+          </div>
+        </div>
+      </div>
+      {/* Our Gellary */}
+      <section class="overflow-hidden text-gray-700 mb-10">
+        <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
+          <div class="flex flex-wrap -m-1 md:-m-2">
+            <div class="w-full sm:w-1/2 p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block object-cover object-center w-full h-full rounded-lg"
+                src={gellary1}
+              />
+            </div>
+            <div class="w-full sm:w-1/2 p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block object-cover object-center w-full h-full rounded-lg"
+                src={gellary2}
+              />
+            </div>
+            <div class="w-full sm:w-full p-1 md:p-2">
+              <img
+                alt="gallery"
+                class="block object-cover object-center w-full h-full rounded-lg h-[400px]"
+                src={gellary3}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+      {/* Team Members */}
+      <div class="bg-white pt-20 pb-10">
+        <div className="px-5 ">
+          <div className="flex items-center">
+            <div className="h-[1px] w-[100px] bg-orange"></div>
+            <p className=" pl-10 uppercase text-orange text-[14px]">
+              Our Team Members
+            </p>
+          </div>
+          <div className="lg:flex items-center justify-between">
+            <h2
+              className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6 lg:pr-20 lg:w-9/12"
+              style={{ fontFamily: "'Teko', sans-serif" }}
+            >
+              Our Most Exprienced Trainers
+            </h2>
+            <div className="lg:w-3/12">
+              <MainButton path="/" content="More services"></MainButton>
+            </div>
+          </div>
+        </div>
+        <div className="md:flex justify-around">
+          <TrainnerCard image={team1}></TrainnerCard>
+          <TrainnerCard image={team2}></TrainnerCard>
+          <TrainnerCard image={team3}></TrainnerCard>
         </div>
       </div>
     </div>
