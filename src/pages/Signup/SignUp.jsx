@@ -1,5 +1,5 @@
 import React from "react";
-import sideImage from "../../assets/gallery/contact_form.png";
+import sideImage from "../../assets/gallery/blog1.png";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 

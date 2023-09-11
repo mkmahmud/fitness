@@ -12,7 +12,7 @@ const Login = () => {
 
   return (
     <div
-      class=" bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-center"
+      className=" bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-center"
       style={{ backgroundImage: `url(${sideImage})` }}
     >
       <div className="bg-[#00000085] py-10 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] mx-auto">

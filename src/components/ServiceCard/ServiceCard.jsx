@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 const ServiceCard = ({ icon, title, description, path, content }) => {
   return (
-    <div className="group text-center bg-white my-10 p-10 mx-4 relative max-w-sm mx-auto ">
+    <div className="bg-sky group text-center  my-10 p-10 mx-4 relative max-w-sm mx-auto ">
       <div>
         <FaDumbbell className="mx-auto text-[50px] text-gray  group-hover:text-orange my-4" />
       </div>

@@ -28,7 +28,7 @@ const Home = () => {
     <div>
       {/* Hero Section */}
       <div
-        class="bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-between"
+        className="bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-between"
         style={{ backgroundImage: `url(${heroImage})` }}
       >
         <div className="px-4 md:px-10">
@@ -49,13 +49,13 @@ const Home = () => {
         {/* Play button */}
         <div className="relative py-10 flex justify-end">
           <div className="relative bg-red h-16 w-16 lg:h-20 lg:w-20  rounded-full flex items-center justify-center mx-6 md:mx-14 lg:mx-20  ">
-            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-red opacity-75"></span>
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red opacity-75"></span>
             <FaPlay className="text-white text-[20px]" />
           </div>
         </div>
       </div>
       {/* About Section */}
-      <div class="my-20 lg:flex items-center justify-between xl:my-40">
+      <div className="my-20 lg:flex items-center justify-between xl:my-40">
         <div className="px-5 lg:w-1/2">
           <img
             className="block mx-auto"
@@ -93,7 +93,7 @@ const Home = () => {
       </div>
       {/* Service Section */}
       <div
-        class="bg-fixed bg-cover bg-center pt-20 pb-10"
+        className="bg-fixed bg-cover bg-center pt-20 pb-10"
         style={{ backgroundImage: `url(${serviceImage})` }}
       >
         <div className="px-5 ">
@@ -174,27 +174,27 @@ const Home = () => {
         </div>
       </div>
       {/* Our Gellary */}
-      <section class="overflow-hidden text-gray-700 mb-10">
-        <div class="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
-          <div class="flex flex-wrap -m-1 md:-m-2">
-            <div class="w-full sm:w-1/2 p-1 md:p-2">
+      <section className="overflow-hidden text-gray-700 mb-10">
+        <div className="container px-5 py-2 mx-auto lg:pt-24 lg:px-32">
+          <div className="flex flex-wrap -m-1 md:-m-2">
+            <div className="w-full sm:w-1/2 p-1 md:p-2">
               <img
                 alt="gallery"
-                class="block object-cover object-center w-full h-full rounded-lg"
+                className="block object-cover object-center w-full h-full rounded-lg"
                 src={gellary1}
               />
             </div>
-            <div class="w-full sm:w-1/2 p-1 md:p-2">
+            <div className="w-full sm:w-1/2 p-1 md:p-2">
               <img
                 alt="gallery"
-                class="block object-cover object-center w-full h-full rounded-lg"
+                className="block object-cover object-center w-full h-full rounded-lg"
                 src={gellary2}
               />
             </div>
-            <div class="w-full sm:w-full p-1 md:p-2">
+            <div className="w-full sm:w-full p-1 md:p-2 h-[400px]">
               <img
                 alt="gallery"
-                class="block object-cover object-center w-full h-full rounded-lg h-[400px]"
+                className="block object-cover object-center w-full h-full rounded-lg "
                 src={gellary3}
               />
             </div>
@@ -202,7 +202,7 @@ const Home = () => {
         </div>
       </section>
       {/* Team Members */}
-      <div class="bg-white pt-20 pb-10">
+      <div className="bg-white pt-20 pb-10">
         <div className="px-5 ">
           <div className="flex items-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
@@ -229,12 +229,12 @@ const Home = () => {
         </div>
       </div>
       {/* Time Schedule */}
-      <div class="bg-white pt-20 pb-10">
+      <div className="bg-white pt-20 pb-10">
         <div className="px-5 text-center ">
           <div className="flex items-center justify-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
             <p className=" pl-10 uppercase text-orange text-[14px]">
-              OUR tIME SCHEDULE 
+              OUR tIME SCHEDULE
             </p>
           </div>
           <div className="w-full lg:w-[60%] mx-auto">

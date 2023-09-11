@@ -11,7 +11,7 @@ const Footer = () => {
   const footerList = "font-[16px] text-gray my-4";
   return (
     <div
-      class="bg-fixed bg-cover bg-center  flex items-center pt-20 lg:px-20"
+      className="bg-fixed bg-cover bg-center  flex items-center pt-20 lg:px-20"
       style={{ backgroundImage: `url(${footerImage})` }}
     >
       <div>

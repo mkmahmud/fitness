@@ -13,14 +13,17 @@ const Navbar = () => {
     "Home",
     "About",
     "Services",
-    "Schdule",
+    "Schedule",
     "Gallery",
     "Blog",
     "Contact",
   ];
 
   return (
-    <div className="bg-[#00000080] py-4 fixed top-0 z-50 w-full" style={{ fontFamily: "'Teko', sans-serif" }}>
+    <div
+      className="bg-[#00000080] py-4 fixed top-0 z-50 w-full"
+      style={{ fontFamily: "'Teko', sans-serif" }}
+    >
       {/* Mobile Menu */}
       <div className="flex items-center justify-between mx-2 sm:mx-6 md:mx-10  lg:hidden ">
         <Link to="/">
@@ -46,7 +49,7 @@ const Navbar = () => {
             {menus.map((menu, index) => {
               return (
                 <Link
-                  to="/"
+                  to={menu === 'Home' ? '/' : menu.toLowerCase()}
                   key={index}
                   className="block px-4 py-2 mt-2 text-sm text-black hover:text-red text-[20px] font-light transition duration-300"
                 >
@@ -73,7 +76,7 @@ const Navbar = () => {
               {menus.map((menu, index) => {
                 return (
                   <Link
-                    to="/"
+                  to={menu === 'Home' ? '/' : menu.toLowerCase()}
                     key={index}
                     className="block px-4 py-2 mt-2 text-white hover:text-red text-[20px] font-light transition duration-300"
                   >
