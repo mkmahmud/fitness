@@ -9,6 +9,8 @@ import Schedule from "../pages/Schedule/Schedule";
 import Gallery from "../pages/Gallery/Gallery";
 import Contact from "../pages/Contact/Contact";
 import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
+import Dashboard from "../layout/Dashboard";
+import PrivateRoute from "../components/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -86,6 +88,20 @@ const router = createBrowserRouter([
             <ScrollToTop></ScrollToTop> <SignUp></SignUp>{" "}
           </>
         ),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard></Dashboard>
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "/dashboard",
+        element: <div className="min-w-[400px] bg-blue text-white mx-auto">Dashboard Home</div>,
       },
     ],
   },

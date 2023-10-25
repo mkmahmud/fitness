@@ -11,9 +11,7 @@ import {
 
 const Login = () => {
   const navigate = useNavigate();
-  // if (isLoggedUser) {
-  //   navigate("/");
-  // } 
+ 
   const [loggedInUser, { isLoading, isError }] = useLoggedInUserMutation();
 
   // React hook form
@@ -24,12 +22,12 @@ const Login = () => {
 
       storeUserInfo(response?.data);
 
-      // navigate("/");
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
   };
- 
+
   const inputDesign =
     "w-full h-[60px] py-[10px] px-[25px] text-blue font-medium border-b-2 border-whiteGray text-[16px] outline-none my-4 bg-sky";
 
