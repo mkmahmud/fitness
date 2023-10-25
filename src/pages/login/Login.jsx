@@ -1,12 +1,35 @@
-import React from "react";
+import React, { useEffect } from "react";
 import sideImage from "../../assets/gallery/contact_form.png";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoggedInUserMutation } from "../../redux/api/auth/authApi";
+import {
+  getUserInfo,
+  isLoggedUser,
+  storeUserInfo,
+} from "../../service/storeUserInfo";
 
 const Login = () => {
-  const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const navigate = useNavigate();
+  // if (isLoggedUser) {
+  //   navigate("/");
+  // } 
+  const [loggedInUser, { isLoading, isError }] = useLoggedInUserMutation();
 
+  // React hook form
+  const { register, handleSubmit } = useForm();
+  const onSubmit = async (data) => {
+    try {
+      const response = await loggedInUser({ ...data }).unwrap();
+
+      storeUserInfo(response?.data);
+
+      // navigate("/");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+ 
   const inputDesign =
     "w-full h-[60px] py-[10px] px-[25px] text-blue font-medium border-b-2 border-whiteGray text-[16px] outline-none my-4 bg-sky";
 
@@ -15,7 +38,7 @@ const Login = () => {
       className=" bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-center"
       style={{ backgroundImage: `url(${sideImage})` }}
     >
-      <div className="bg-[#00000085] py-10 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] mx-auto">
+      <div className="bg-[#00000085] py-10 w-[90%] sm:w-[60%]  lg:w-[40%] mx-auto">
         <div className="px-5 text-center ">
           <div className="flex items-center justify-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>

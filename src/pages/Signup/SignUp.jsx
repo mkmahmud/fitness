@@ -1,21 +1,36 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sideImage from "../../assets/gallery/blog1.png";
-import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom";
-
+import { set, useForm } from "react-hook-form";
+import { Link, useNavigate } from "react-router-dom";
+import { useCreateUserMutation } from "../../redux/api/auth/authApi";
+ 
 const SignUp = () => {
+  const navigate = useNavigate();
+
+  const [createUser, { isLoading, isError }] = useCreateUserMutation();
+
+  // React hook from
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    try {
+      const response = await createUser(data).unwrap();
+      if (response?.data) {
+        console.log("User Created Successfully");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const inputDesign =
     "w-full h-[60px] py-[10px] px-[25px] text-blue font-medium border-b-2 border-whiteGray text-[16px] outline-none my-4 bg-sky";
 
   return (
     <div
-      class=" bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-center"
+      className=" bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-center"
       style={{ backgroundImage: `url(${sideImage})` }}
     >
-      <div className="bg-[#00000085] py-10 w-[90%] sm:w-[70%] md:w-[60%] lg:w-[40%] mx-auto">
+      <div className="bg-[#00000085] py-10 w-[90%] sm:w-[60%]  lg:w-[40%] mx-auto">
         <div className="px-5 text-center ">
           <div className="flex items-center justify-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
@@ -44,7 +59,7 @@ const SignUp = () => {
             className={inputDesign}
             name=""
             id=""
-            {...register("name", { required: true })}
+            {...register("fullName", { required: true })}
           />
           <input
             type="password"

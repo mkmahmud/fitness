@@ -4,8 +4,10 @@ import { GiHamburgerMenu } from "react-icons/gi";
 import { AiOutlineClose } from "react-icons/ai";
 import MainButton from "../../Buttons/MainButton";
 import { Link } from "react-router-dom";
+import { isLoggedUser } from "../../../service/storeUserInfo";
 
 const Navbar = () => {
+  const isLogged = isLoggedUser();
   // Mobile Menu
   const [mobileMenu, setMobileMenu] = useState(false);
   // Menus
@@ -49,7 +51,7 @@ const Navbar = () => {
             {menus.map((menu, index) => {
               return (
                 <Link
-                  to={menu === 'Home' ? '/' : menu.toLowerCase()}
+                  to={menu === "Home" ? "/" : menu.toLowerCase()}
                   key={index}
                   className="block px-4 py-2 mt-2 text-sm text-black hover:text-red text-[20px] font-light transition duration-300"
                 >
@@ -76,7 +78,7 @@ const Navbar = () => {
               {menus.map((menu, index) => {
                 return (
                   <Link
-                  to={menu === 'Home' ? '/' : menu.toLowerCase()}
+                    to={menu === "Home" ? "/" : menu.toLowerCase()}
                     key={index}
                     className="block px-4 py-2 mt-2 text-white hover:text-red text-[20px] font-light transition duration-300"
                   >
@@ -88,7 +90,11 @@ const Navbar = () => {
 
             {/* Button */}
             <div>
-              <MainButton path="/login" content="Become a member"></MainButton>
+              {isLogged ? (
+                <MainButton path="/login" content="Profile"></MainButton>
+              ) : (
+                <MainButton path="/login" content="LOG IN"></MainButton>
+              )}
             </div>
           </div>
         </div>

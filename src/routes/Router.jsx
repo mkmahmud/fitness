@@ -8,6 +8,7 @@ import Services from "../pages/Services/Services";
 import Schedule from "../pages/Schedule/Schedule";
 import Gallery from "../pages/Gallery/Gallery";
 import Contact from "../pages/Contact/Contact";
+import ScrollToTop from "../components/ScrollToTop/ScrollToTop";
 
 const router = createBrowserRouter([
   {
@@ -16,35 +17,75 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home></Home>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <Home></Home>
+          </>
+        ),
       },
       {
         path: "/about",
-        element: <About></About>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <About></About>{" "}
+          </>
+        ),
       },
       {
         path: "/services",
-        element: <Services></Services>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <Services></Services>{" "}
+          </>
+        ),
       },
       {
         path: "/schedule",
-        element: <Schedule></Schedule>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <Schedule></Schedule>{" "}
+          </>
+        ),
       },
       {
         path: "/gallery",
-        element: <Gallery></Gallery>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <Gallery></Gallery>{" "}
+          </>
+        ),
       },
       {
         path: "/contact",
-        element: <Contact></Contact>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <Contact></Contact>{" "}
+          </>
+        ),
       },
       {
         path: "/login",
-        element: <Login></Login>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <Login></Login>{" "}
+          </>
+        ),
       },
       {
         path: "/signup",
-        element: <SignUp></SignUp>,
+        element: (
+          <>
+            {" "}
+            <ScrollToTop></ScrollToTop> <SignUp></SignUp>{" "}
+          </>
+        ),
       },
     ],
   },

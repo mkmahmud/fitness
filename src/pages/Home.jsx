@@ -13,7 +13,6 @@ import {
   FaArrowRight,
 } from "react-icons/fa";
 import FeedbackImage from "../assets/gallery/feedback.png";
-import qutaion from "../assets/gallery/qutaion.png";
 import ClientReviewCard from "../components/ClientReviewCard/ClientReviewCard";
 import gellary1 from "../assets/gallery/gallery1.png";
 import gellary2 from "../assets/gallery/gallery2.png";
@@ -22,6 +21,7 @@ import TrainnerCard from "../components/TrainnerCard/TrainnerCard";
 import team1 from "../assets/gallery/team1.png";
 import team2 from "../assets/gallery/team2.png";
 import team3 from "../assets/gallery/team3.png";
+import SubHead from "../components/Heading/SubHead";
 
 const Home = () => {
   return (
@@ -34,9 +34,7 @@ const Home = () => {
         <div className="px-4 md:px-10">
           <div className="flex items-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className="text-white pl-10 uppercase text-orange text-[13px]">
-              with patrick potter
-            </p>
+            <SubHead color="white" title="WITH PATRICK POTTER" />
           </div>
           <h2
             className="text-white text-[29px] md:text-[70px] md:leading-none md:w-[80%] xl:w-[70%] font-bold uppercase py-16"
@@ -48,7 +46,7 @@ const Home = () => {
         </div>
         {/* Play button */}
         <div className="relative py-10 flex justify-end">
-          <div className="relative bg-red h-16 w-16 lg:h-20 lg:w-20  rounded-full flex items-center justify-center mx-6 md:mx-14 lg:mx-20  ">
+          <div className="cursor-pointer relative bg-red h-16 w-16 lg:h-20 lg:w-20  rounded-full flex items-center justify-center mx-6 md:mx-14 lg:mx-20  ">
             <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red opacity-75"></span>
             <FaPlay className="text-white text-[20px]" />
           </div>
@@ -66,9 +64,7 @@ const Home = () => {
         <div className="py-10 px-4 md:px-10 lg:w-1/2">
           <div className="flex items-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[14px]">
-              About our gym
-            </p>
+            <SubHead color="orange" title="About our gym" />
           </div>
           <h2
             className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
@@ -99,9 +95,7 @@ const Home = () => {
         <div className="px-5 ">
           <div className="flex items-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[14px]">
-              oUR sERVICES FOR YOU
-            </p>
+            <SubHead color="orange" title="oUR sERVICES FOR YOU" />
           </div>
           <div className="lg:flex items-center justify-between">
             <h2
@@ -127,6 +121,7 @@ const Home = () => {
           <ServiceCard
             icon={FaDumbbell}
             title=" QUALITY EQUIPMENT"
+            status="active"
             description="The sea freight service has grown considerably in recent years. We spend
             time getting to know..."
             path="/"
@@ -154,9 +149,7 @@ const Home = () => {
         <div className="py-10 px-4 md:px-10 lg:w-1/2">
           <div className="flex items-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[14px]">
-              Client Feedback
-            </p>
+            <SubHead color="orange" title="Client Feedback" />
           </div>
           <h2
             className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
@@ -206,9 +199,7 @@ const Home = () => {
         <div className="px-5 ">
           <div className="flex items-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[14px]">
-              Our Team Members
-            </p>
+            <SubHead color="orange" title="Our Team Members" />
           </div>
           <div className="lg:flex items-center justify-between">
             <h2
@@ -233,9 +224,7 @@ const Home = () => {
         <div className="px-5 text-center ">
           <div className="flex items-center justify-center">
             <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[14px]">
-              OUR tIME SCHEDULE
-            </p>
+            <SubHead color="orange" title="OUR tIME SCHEDULE" />
           </div>
           <div className="w-full lg:w-[60%] mx-auto">
             <h2
