@@ -6,10 +6,10 @@ const Topbar = ({ sidebar, setSidebar }) => {
   const [profile, setProfile] = useState(false);
 
   return (
-    <div className="flex justify-between items-center px-4 py-2 border-b border-gray fixed w-full h-[60px]">
+    <div className="flex justify-between bg-white items-center px-4 py-2 border-b border-gray fixed w-full h-[60px]">
       <div className="flex items-center">
         <h2 className="text-[30px] font-semibold">
-          <span className="text-red">F</span>ONE
+          <span className="text-red">FITNESS</span>ONE
         </h2>
         <button
           className="mx-4 md:hidden"
@@ -29,7 +29,7 @@ const Topbar = ({ sidebar, setSidebar }) => {
             setProfile(!profile);
           }}
           src={profileImage}
-          className="h-[40px] w-[40px]"
+          className="h-[40px] w-[40px] cursor-pointer"
           alt="Profile"
         />
         {profile && (

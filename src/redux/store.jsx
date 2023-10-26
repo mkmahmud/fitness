@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
- import userReducer from "./features/user/userSlice";
+import usemodalSlice from "./features/modals/modalSlie";
 import { apiSlice } from "./api/baseApi";
 
 export default configureStore({
   reducer: {
-    user: userReducer,
+    modal: usemodalSlice,
     [apiSlice.reducerPath]: apiSlice.reducer,
   },
   middleware: (getDefaultMiddleware) =>
