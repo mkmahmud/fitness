@@ -15,6 +15,11 @@ import AdminHome from "../pages/Dashboard/Admin/Home/Home";
 import Members from "../pages/Dashboard/Admin/Members/Members";
 import Trainers from "../pages/Dashboard/Admin/Trainers/Trainers";
 import MealPlan from "../pages/Dashboard/Admin/MealPlan/MealPlan";
+import AdminPrivateRoute from "../components/PrivateRoute/AdminRoute";
+import UserHome from "../pages/Dashboard/User/Home/Home";
+import Routine from "../pages/Dashboard/User/Routine/Routine";
+import DashboardHomePage from "../pages/Dashboard/Home";
+import UserMeal from "../pages/Dashboard/User/Meal/Meal";
 
 const router = createBrowserRouter([
   {
@@ -105,27 +110,54 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/dashboard",
-        element: (
-          <div className="min-w-[400px] bg-blue text-white mx-auto">
-            Dashboard Home
-          </div>
-        ),
+        element: <DashboardHomePage></DashboardHomePage>,
       },
       {
         path: "/dashboard/admin",
-        element: <AdminHome></AdminHome>,
+        element: (
+          <AdminPrivateRoute>
+            {" "}
+            <AdminHome></AdminHome>,{" "}
+          </AdminPrivateRoute>
+        ),
       },
       {
         path: "/dashboard/admin/members",
-        element: <Members></Members>,
+        element: (
+          <AdminPrivateRoute>
+            <Members></Members>{" "}
+          </AdminPrivateRoute>
+        ),
       },
       {
         path: "/dashboard/admin/trainers",
-        element: <Trainers></Trainers>,
+        element: (
+          <AdminPrivateRoute>
+            <Trainers></Trainers>,{" "}
+          </AdminPrivateRoute>
+        ),
       },
       {
         path: "/dashboard/admin/meal-plan",
-        element: <MealPlan></MealPlan>,
+        element: (
+          <AdminPrivateRoute>
+            {" "}
+            <MealPlan></MealPlan>{" "}
+          </AdminPrivateRoute>
+        ),
+      },
+      // Users Routing
+      {
+        path: "/dashboard/user",
+        element: <UserHome></UserHome>,
+      },
+      {
+        path: "/dashboard/user/routine",
+        element: <Routine></Routine>,
+      },
+      {
+        path: "/dashboard/user/meal",
+        element: <UserMeal></UserMeal>,
       },
     ],
   },

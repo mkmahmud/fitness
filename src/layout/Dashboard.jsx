@@ -3,6 +3,8 @@ import { Outlet } from "react-router-dom";
 import Topbar from "../components/Dashboard/Shared/Topbar";
 import Sidebar from "../components/Dashboard/Shared/Sidebar";
 import AddUser from "../components/Dashboard/AddUser/AddUser";
+import ViewMeal from "../components/Dashboard/ViewMeal/ViewMeal";
+import ViewRoutine from "../components/Dashboard/ViewRoutine/ViewRutine";
 
 const Dashboard = () => {
   // handel sidebar
@@ -20,7 +22,10 @@ const Dashboard = () => {
           <Outlet></Outlet>
         </div>{" "}
       </div>
+      {/* Modals */}
       <AddUser></AddUser>
+      <ViewMeal></ViewMeal>
+      <ViewRoutine></ViewRoutine>
     </div>
   );
 };

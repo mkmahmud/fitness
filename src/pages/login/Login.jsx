@@ -11,7 +11,7 @@ import {
 
 const Login = () => {
   const navigate = useNavigate();
- 
+
   const [loggedInUser, { isLoading, isError }] = useLoggedInUserMutation();
 
   // React hook form
@@ -27,6 +27,14 @@ const Login = () => {
       console.log(error);
     }
   };
+
+  // redirect user if logged in
+  const loggedUser = isLoggedUser();
+  useEffect(() => {
+    if (loggedUser) {
+      navigate("/dashboard");
+    }
+  }, [loggedUser]);
 
   const inputDesign =
     "w-full h-[60px] py-[10px] px-[25px] text-blue font-medium border-b-2 border-whiteGray text-[16px] outline-none my-4 bg-sky";

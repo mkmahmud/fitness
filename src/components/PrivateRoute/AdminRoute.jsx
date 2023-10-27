@@ -1,19 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { isLoggedUser } from "../../service/storeUserInfo";
+import { getUserInfo } from "../../service/storeUserInfo";
 import { useNavigate } from "react-router-dom";
 
-const PrivateRoute = ({ children }) => {
+const AdminPrivateRoute = ({ children }) => {
   const navigate = useNavigate();
   const [loading, setLoading] = useState(true);
-  const loggedUser = isLoggedUser();
-
+  const userInfo = getUserInfo();
   useEffect(() => {
-    if (!loggedUser) {
-      navigate("/login");
+    if (userInfo.role !== "admin") {
+      navigate("/dashboard");
     }
-
     setLoading(false);
-  }, [loggedUser, navigate]);
+  }, [userInfo.role, navigate]);
 
   if (loading) {
     return <div>Loading...</div>;
@@ -22,4 +20,4 @@ const PrivateRoute = ({ children }) => {
   return children;
 };
 
-export default PrivateRoute;
+export default AdminPrivateRoute;

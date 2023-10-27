@@ -47,14 +47,32 @@ const Sidebar = ({ sidebar }) => {
 
         {role === UserRole.USER && (
           <ul>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/meal" className="flex items-center text-blackGray">
+            <li
+              className={`${
+                isActive(`${urlPath}/meal`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/meal`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-scale-unbalanced h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">My Meal</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/meal" className="flex items-center text-blackGray">
+            <li
+              className={`${
+                isActive(`${urlPath}/routine`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/routine`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-book h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Routine</span>
               </Link>
@@ -169,7 +187,7 @@ const Sidebar = ({ sidebar }) => {
                 isActive(`${urlPath}/meal-plan`)
                   ? "bg-gray rounded-r-full border-red border-l-4"
                   : ""
-              }  px-4 my-2 py-2`} 
+              }  px-4 my-2 py-2`}
             >
               <Link
                 to={`${urlPath}/meal-plan`}

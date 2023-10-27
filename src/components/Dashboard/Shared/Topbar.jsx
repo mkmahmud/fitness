@@ -1,10 +1,16 @@
 import { useState } from "react";
 import profileImage from "../../../assets/dashboard/profile.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { getUserInfo, logOut } from "../../../service/storeUserInfo";
 const Topbar = ({ sidebar, setSidebar }) => {
   // Handel Profile Button
   const [profile, setProfile] = useState(false);
 
+  // Get User Information
+  const user = getUserInfo();
+
+  // Navigation
+  const navigation = useNavigate();
   return (
     <div className="flex justify-between bg-white items-center px-4 py-2 border-b border-gray fixed w-full h-[60px]">
       <div className="flex items-center">
@@ -35,6 +41,10 @@ const Topbar = ({ sidebar, setSidebar }) => {
         {profile && (
           <div className="absolute  top-16 bg-white border border-gray  right-4   py-2">
             <ul>
+              <li className="px-6 py-6 text-center  border-b border-gray">
+                {" "}
+                <i class="fa-regular fa-id-badge px-2"></i> <span>{user?.id}</span>
+              </li>
               <li className="px-6 py-2  border-b border-gray">
                 <Link to="/signout">
                   {" "}
@@ -42,11 +52,17 @@ const Topbar = ({ sidebar, setSidebar }) => {
                   <span>Change Password</span>
                 </Link>
               </li>
-              <li className="px-6 py-2  ">
-                <Link to="/signout">
+              <li
+                className="px-6 py-2 cursor-pointer  "
+                onClick={() => {
+                  logOut();
+                  navigation("/login");
+                }}
+              >
+                <p>
                   <i class="px-2 fa-solid fa-right-from-bracket "></i>{" "}
                   <span>Sign Out</span>
-                </Link>
+                </p>
               </li>
             </ul>
           </div>

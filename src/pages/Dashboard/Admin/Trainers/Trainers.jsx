@@ -3,6 +3,51 @@ import Select from "../../../../components/Dashboard/Form/Select/Select";
 import Table from "../../../../components/Dashboard/Form/Table/Table";
 
 const Trainers = () => {
+  const tableHead = [
+    {
+      index: 0,
+      title: "Name",
+      dataIndex: "name",
+    },
+    {
+      index: 1,
+      title: "Age",
+      dataIndex: "age",
+    },
+    {
+      index: 2,
+      title: "Joined Date",
+      dataIndex: "joinedDate",
+    },
+  ];
+
+  const data = [
+    {
+      name: "Trainer Hasan",
+      age: 20,
+      joinedDate: "10/10/1010",
+      key: "323dafwe4",
+    },
+    {
+      name: "Trainer ",
+      age: 10,
+      joinedDate: "10/10/1010",
+      key: "323dafwd3",
+    },
+    {
+      name: "Trainer ",
+      age: 10,
+      joinedDate: "10/10/1010",
+      key: "323dafwd3",
+    },
+    {
+      name: "Trainer ",
+      age: 10,
+      joinedDate: "10/10/1010",
+      key: "323dafwd3",
+    },
+  ];
+
   return (
     <div>
       <div className="flex justify-between my-6">
@@ -10,30 +55,15 @@ const Trainers = () => {
       </div>
       {/* Content */}
       <div className="bg-white rounded-xl">
-        {/*  Table */}
-        <div className="  rounded-xl px-4 flex justify-between items-center py-6 bg-white">
-          <div>
-            <h1 className="text-[20px] font-semibold">All Trainers</h1>
-          </div>
-          <div>
-            <Select></Select>
-            <Select></Select>
-            <Select></Select>
-          </div>
-        </div>
-        <div>
-          <Table></Table>
-        </div>
-        <div className="flex justify-between items-center px-4 py-6">
-          <p className="text-gray">1-8 of 24</p>
-          <div>
-            <button className="px-4">1</button>
-            <button className="px-4 text-red">2</button>
-            <button className="px-4">3</button>
-            <button className="px-4"> {`>`} </button>
-          </div>
-          <div></div>
-        </div>
+        <Table
+          title="All Trainers"
+          tableHead={tableHead}
+          data={data}
+          tableFor="trainers"
+          isview={true}
+          isedit={true}
+          isdelete={true}
+        ></Table>
       </div>
     </div>
   );
