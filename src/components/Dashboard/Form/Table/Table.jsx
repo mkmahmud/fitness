@@ -10,6 +10,7 @@ const Table = ({
   isedit,
   isdelete,
   isviewOption,
+  isEditOption
 }) => {
   return (
     <div>
@@ -66,7 +67,7 @@ const Table = ({
                   {isedit && (
                     <button
                       onClick={() => {
-                        console.log(user);
+                        isEditOption(user)
                       }}
                       className="  text-blackGray text-[20px]  h-[30px] w-[30px] px-6 rounded  mx-auto text-center"
                     >

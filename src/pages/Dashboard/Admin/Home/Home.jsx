@@ -1,6 +1,7 @@
 import React from "react";
 import { getUserInfo } from "../../../../service/storeUserInfo";
 import StatusCard from "../../../../components/Dashboard/StatusCard/StatusCard";
+import Profile from "../../../../components/Dashboard/Shared/Common/Profile";
 
 const AdminHome = () => {
   // Get user information
@@ -8,9 +9,8 @@ const AdminHome = () => {
 
   return (
     <div>
-      <div className="my-4  ">
-        <h1 className="text-[30px] font-bold">Wellcome, {user?.email}</h1>
-      </div>
+      <Profile></Profile>
+
       <div className="md:flex justify-between items-center">
         <StatusCard />
         <StatusCard />

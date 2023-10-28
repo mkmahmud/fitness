@@ -1,7 +1,7 @@
 import React from "react";
 import Profile from "../../../../components/Dashboard/Shared/Common/Profile";
 
-const UserHome = () => {
+const TrainerHome = () => {
   return (
     <div>
       <Profile></Profile>
@@ -9,4 +9,4 @@ const UserHome = () => {
   );
 };
 
-export default UserHome;
+export default TrainerHome;

@@ -15,6 +15,7 @@ const initialState = {
       data: {},
     },
   },
+  addMealPlan: false,
 };
 
 const modalSlice = createSlice({
@@ -32,9 +33,13 @@ const modalSlice = createSlice({
       state.meal.data.open = action.payload.isOpen;
       state.meal.data.data = action.payload.data;
     },
+    setAddMealModal: (state, action) => {
+      state.addMealPlan = action.payload;
+    },
   },
 });
 
-export const { setUserModal, setRoutineModal, setMealModal } = modalSlice.actions;
+export const { setUserModal, setRoutineModal, setMealModal, setAddMealModal } =
+  modalSlice.actions;
 
 export default modalSlice.reducer;

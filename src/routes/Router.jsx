@@ -20,6 +20,11 @@ import UserHome from "../pages/Dashboard/User/Home/Home";
 import Routine from "../pages/Dashboard/User/Routine/Routine";
 import DashboardHomePage from "../pages/Dashboard/Home";
 import UserMeal from "../pages/Dashboard/User/Meal/Meal";
+import UserPrivateRoute from "../components/PrivateRoute/UserPrivateRoute";
+import TrainerPrivateRoute from "../components/PrivateRoute/TrainerPrivateRoute";
+import Mystudents from "../pages/Dashboard/Trainer/MyStudents/Mystudents";
+import TrainerHome from "../pages/Dashboard/Trainer/Home/Home";
+import Availability from "../pages/Dashboard/Trainer/Availability/Availability";
 
 const router = createBrowserRouter([
   {
@@ -149,15 +154,53 @@ const router = createBrowserRouter([
       // Users Routing
       {
         path: "/dashboard/user",
-        element: <UserHome></UserHome>,
+        element: (
+          <UserPrivateRoute>
+            {" "}
+            <UserHome></UserHome>
+          </UserPrivateRoute>
+        ),
       },
       {
         path: "/dashboard/user/routine",
-        element: <Routine></Routine>,
+        element: (
+          <UserPrivateRoute>
+            <Routine></Routine>{" "}
+          </UserPrivateRoute>
+        ),
       },
       {
         path: "/dashboard/user/meal",
-        element: <UserMeal></UserMeal>,
+        element: (
+          <UserPrivateRoute>
+            <UserMeal></UserMeal>{" "}
+          </UserPrivateRoute>
+        ),
+      },
+      // Trainer
+      {
+        path: "/dashboard/trainer",
+        element: (
+          <TrainerPrivateRoute>
+            <TrainerHome></TrainerHome>
+          </TrainerPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/trainer/availability",
+        element: (
+          <TrainerPrivateRoute>
+            <Availability></Availability>{" "}
+          </TrainerPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/trainer/students",
+        element: (
+          <TrainerPrivateRoute>
+            <Mystudents></Mystudents>
+          </TrainerPrivateRoute>
+        ),
       },
     ],
   },

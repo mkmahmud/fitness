@@ -5,6 +5,7 @@ import Sidebar from "../components/Dashboard/Shared/Sidebar";
 import AddUser from "../components/Dashboard/AddUser/AddUser";
 import ViewMeal from "../components/Dashboard/ViewMeal/ViewMeal";
 import ViewRoutine from "../components/Dashboard/ViewRoutine/ViewRutine";
+import AddMealPlan from "../components/Dashboard/AddMealPlan/AddMealPlan";
 
 const Dashboard = () => {
   // handel sidebar
@@ -26,6 +27,7 @@ const Dashboard = () => {
       <AddUser></AddUser>
       <ViewMeal></ViewMeal>
       <ViewRoutine></ViewRoutine>
+      <AddMealPlan></AddMealPlan>
     </div>
   );
 };

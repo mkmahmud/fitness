@@ -3,7 +3,10 @@ import { Link, useLocation } from "react-router-dom";
 import { getUserInfo } from "../../../service/storeUserInfo";
 import { UserRole } from "../../../constant/user";
 import { useDispatch, useSelector } from "react-redux";
-import { setUserModal } from "../../../redux/features/modals/modalSlie";
+import {
+  setAddMealModal,
+  setUserModal,
+} from "../../../redux/features/modals/modalSlie";
 
 const Sidebar = ({ sidebar }) => {
   // Logged User Information
@@ -110,15 +113,30 @@ const Sidebar = ({ sidebar }) => {
         {/* Trainer Menus */}
         {role === UserRole.TRAINER && (
           <ul>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/students" className="flex items-center text-blackGray">
+            <li
+              className={`${
+                isActive(`${urlPath}/students`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/students`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">My Students</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
+            <li
+              className={`${
+                isActive(`${urlPath}/availability`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
               <Link
-                to="/availability"
+                to={`${urlPath}/availability`}
                 className="flex items-center text-blackGray"
               >
                 <i class="fa-solid fa-timeline h-[20px] w-[20px]"></i>{" "}
@@ -126,13 +144,15 @@ const Sidebar = ({ sidebar }) => {
               </Link>
             </li>
             <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link
-                to="/meal-plan"
-                className="flex items-center text-blackGray"
+              <p
+                onClick={() => {
+                  dispatch(setAddMealModal(true));
+                }}
+                className="flex items-center text-blackGray cursor-pointer"
               >
                 <i class="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
-                <span className="text-[16px]  mx-2">Meal Plan</span>
-              </Link>
+                <span className="text-[16px]  mx-2">Add Meal Plan</span>
+              </p>
             </li>
           </ul>
         )}
@@ -169,6 +189,21 @@ const Sidebar = ({ sidebar }) => {
               >
                 <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Trainers</span>
+              </Link>
+            </li>
+            <li
+              className={`${
+                isActive(`${urlPath}/plans`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/plans`}
+                className="flex items-center text-blackGray"
+              >
+                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <span className="text-[16px]  mx-2">Plans</span>
               </Link>
             </li>
             <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
