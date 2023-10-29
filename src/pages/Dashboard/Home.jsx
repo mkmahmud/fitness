@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import PageHead from "../../components/Dashboard/Shared/Common/PageHead";
 import { getUserInfo, isLoggedUser } from "../../service/storeUserInfo";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
 
 const DashboardHomePage = () => {
   // User
@@ -11,7 +12,7 @@ const DashboardHomePage = () => {
   const navigation = useNavigate();
 
   // Get is logged in
-  const logged = isLoggedUser();
+  const logged = isLoggedUser();  
 
   useEffect(() => {
     if (logged) {

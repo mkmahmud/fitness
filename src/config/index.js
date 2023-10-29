@@ -1,3 +1,3 @@
 export const getUrl = () => {
-  return "https://fitness-backend-two.vercel.app/api/v1";
+  return "http://localhost:5000/api/v1";
 };

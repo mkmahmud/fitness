@@ -1,17 +1,29 @@
 import React from "react";
 import PageHead from "../../../../components/Dashboard/Shared/Common/PageHead";
 import Table from "../../../../components/Dashboard/Form/Table/Table";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setMealModal } from "../../../../redux/features/modals/modalSlie";
+import { useGetAllMealForUserQuery } from "../../../../redux/api/meal/mealApi";
 
 const UserMeal = () => {
   // dispatch
   const dispatch = useDispatch();
+
+  // User
+  const user = useSelector((state) => state.user.user);
+
+  // Meal Data
+  const {
+    data: mealData,
+    error,
+    isLoading,
+  } = useGetAllMealForUserQuery(user?._id);
+
   const tableHead = [
     {
       index: 0,
       title: "Name",
-      dataIndex: "name",
+      dataIndex: "mealName",
     },
     {
       index: 1,
@@ -25,27 +37,22 @@ const UserMeal = () => {
     },
   ];
 
-  const data = [
-    {
+  const updatedMealData =
+    mealData &&
+    mealData.map((item) => ({
+      ...item, // Spread the existing item properties
       name: "Meal 1",
       duration: "3m",
       startDate: "10/10/1010",
-      key: "323dffwe4",
-    },
-    {
-      name: "Meal 2",
-      duration: "3m",
-      startDate: "10/10/1010",
-      key: "323dqfwe4",
-    },
-    {
-      name: "Meal 3",
-      duration: "3m",
-      startDate: "10/10/1010",
-      key: "323dwfwe4",
-    },
-  ];
-  const handelView = (data) => {
+      data: item,
+      key:  item._id,
+    }));
+
+  console.log(updatedMealData);
+
+  // Now updatedMealData contains the updated meal data with the additional object
+
+  const handelView = (data) => { 
     return dispatch(setMealModal(data));
   };
 
@@ -53,14 +60,16 @@ const UserMeal = () => {
     <div>
       <PageHead title="Meal"></PageHead>
       <div className="bg-white rounded-xl">
-        <Table
-          tableFor="Routine"
-          title="My Meals"
-          tableHead={tableHead}
-          data={data}
-          isview={true}
-          isviewOption={handelView}
-        ></Table>
+        {updatedMealData && (
+          <Table
+            tableFor="Routine"
+            title="My Meals"
+            tableHead={tableHead}
+            data={updatedMealData}
+            isview={true}
+            isviewOption={handelView}
+          ></Table>
+        )}
       </div>
     </div>
   );

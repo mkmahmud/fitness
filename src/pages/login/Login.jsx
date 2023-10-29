@@ -8,6 +8,7 @@ import {
   isLoggedUser,
   storeUserInfo,
 } from "../../service/storeUserInfo";
+import Cookies from "js-cookie";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ const Login = () => {
     try {
       const response = await loggedInUser({ ...data }).unwrap();
 
-      storeUserInfo(response?.data);
+      storeUserInfo(response.jwtTocken);
 
       navigate("/dashboard");
     } catch (error) {

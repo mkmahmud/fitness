@@ -91,7 +91,11 @@ const Navbar = () => {
             {/* Button */}
             <div>
               {isLogged ? (
-                <MainButton path="/login" content="Profile"></MainButton>
+                <button className="mx-2">
+                  <Link to="/dashboard">
+                    <i class="fa-regular fa-user text-red text-[30px] "></i>
+                  </Link>
+                </button>
               ) : (
                 <MainButton path="/login" content="LOG IN"></MainButton>
               )}

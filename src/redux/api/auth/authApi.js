@@ -6,6 +6,9 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
       query: (loginData) => ({
         url: "/auth/login",
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         data: loginData,
       }),
       invalidatesTags: ["user"],
@@ -14,6 +17,9 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
       query: (data) => ({
         url: "/auth/register",
         method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
         data: data,
       }),
       invalidatesTags: ["user"],
@@ -21,4 +27,5 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
   }),
 });
 
-export const { useLoggedInUserMutation, useCreateUserMutation } = extendedApiSlice;
+export const { useLoggedInUserMutation, useCreateUserMutation } =
+  extendedApiSlice;

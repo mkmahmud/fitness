@@ -1,15 +1,18 @@
-import axios from "axios";
+import { getFromLocalStorage } from "../utils/LocalStorage";
+import { instance } from "./instanstance";
 
-export const axiosBaseQuery =
+ export const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: "" }) =>
-  async ({ url, method, data, params, headers }) => {
+  async ({ url, method, data, params, contentType }) => {
     try {
-      const result = await axios({
+      const result = await instance({
         url: baseUrl + url,
         method,
         data,
         params,
-        headers,
+        headers: {
+          "Content-Type": contentType || "application/json",
+        },
       });
       return { data: result.data };
     } catch (axiosError) {

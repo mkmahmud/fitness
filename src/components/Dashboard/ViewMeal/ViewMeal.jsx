@@ -4,6 +4,8 @@ import { setMealModal } from "../../../redux/features/modals/modalSlie";
 const ViewMeal = () => {
   // Create User Account
   const mealData = useSelector((state) => state.modal.meal);
+ 
+
   // Set Modal Status
   const dispatch = useDispatch();
 
@@ -22,7 +24,9 @@ const ViewMeal = () => {
               </button>
             </div>
             <div>
-              <h1 className="text-center text-[25px] font-semibold">Meal 2 </h1>
+              <h1 className="text-center text-[25px] font-semibold">
+                {mealData?.data?.data?.mealName}{" "}
+              </h1>
             </div>
           </div>
         </div>

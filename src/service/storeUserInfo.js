@@ -6,7 +6,7 @@ import {
 import { decodeData } from "../utils/jwt";
 // Store tocken in local storage
 export const storeUserInfo = (data) => {
-  return setToLocalStorage("access_token", data.jwtTocken);
+  return setToLocalStorage("access_token", data);
 };
 
 // Get User Info from local storage

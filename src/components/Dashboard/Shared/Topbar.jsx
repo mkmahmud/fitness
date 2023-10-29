@@ -2,6 +2,8 @@ import { useState } from "react";
 import profileImage from "../../../assets/dashboard/profile.png";
 import { Link, useNavigate } from "react-router-dom";
 import { getUserInfo, logOut } from "../../../service/storeUserInfo";
+import logo from "../../../assets/logo/logo.png";
+import { useCurrentUserQuery } from "../../../redux/api/user/userSlice";
 const Topbar = ({ sidebar, setSidebar }) => {
   // Handel Profile Button
   const [profile, setProfile] = useState(false);
@@ -9,13 +11,19 @@ const Topbar = ({ sidebar, setSidebar }) => {
   // Get User Information
   const user = getUserInfo();
 
+  // User information
+  const { data, error, isLoading } = useCurrentUserQuery(user?.id);
+
   // Navigation
   const navigation = useNavigate();
   return (
     <div className="flex justify-between bg-white items-center px-4 py-2 border-b border-gray fixed w-full h-[60px]">
       <div className="flex items-center">
         <h2 className="text-[30px] font-semibold">
-          <span className="text-red">FITNESS</span>ONE
+          {/* <Link to='/'><span className="text-red">FITNESS</span>ONE</Link> */}
+          <Link to="/">
+            <img src={logo} alt="Fitness one Logo" />
+          </Link>
         </h2>
         <button
           className="mx-4 md:hidden"
@@ -34,7 +42,7 @@ const Topbar = ({ sidebar, setSidebar }) => {
           onClick={() => {
             setProfile(!profile);
           }}
-          src={profileImage}
+          src={data?.user?.image ? data?.user?.image : profileImage}
           className="h-[40px] w-[40px] cursor-pointer"
           alt="Profile"
         />
@@ -43,7 +51,8 @@ const Topbar = ({ sidebar, setSidebar }) => {
             <ul>
               <li className="px-6 py-6 text-center  border-b border-gray">
                 {" "}
-                <i class="fa-regular fa-id-badge px-2"></i> <span>{user?.id}</span>
+                <i class="fa-regular fa-id-badge px-2"></i>{" "}
+                <span>{user?.id}</span>
               </li>
               <li className="px-6 py-2  border-b border-gray">
                 <Link to="/signout">
