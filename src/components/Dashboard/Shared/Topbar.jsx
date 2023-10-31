@@ -49,9 +49,13 @@ const Topbar = ({ sidebar, setSidebar }) => {
         {profile && (
           <div className="absolute  top-16 bg-white border border-gray  right-4   py-2">
             <ul>
-              <li className="px-6 py-6 text-center  border-b border-gray">
+              <li className="px-6 py-6 text-center  border-b border-gray flex items-center">
                 {" "}
-                <i class="fa-regular fa-id-badge px-2"></i>{" "}
+                <img
+                  src={data?.user?.image ? data?.user?.image : profileImage}
+                  alt="Profile Image"
+                  className="h-[40px] w-[40px] mx-4"
+                />
                 <span>{user?.id}</span>
               </li>
               <li className="px-6 py-2  border-b border-gray">

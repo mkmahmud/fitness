@@ -4,36 +4,36 @@ import Table from "../../../../components/Dashboard/Form/Table/Table";
 import { useDispatch, useSelector } from "react-redux";
 import { setMealModal } from "../../../../redux/features/modals/modalSlie";
 import { useGetAllMealForUserQuery } from "../../../../redux/api/meal/mealApi";
+import { getUserInfo } from "../../../../service/storeUserInfo";
 
 const UserMeal = () => {
   // dispatch
   const dispatch = useDispatch();
 
   // User
-  const user = useSelector((state) => state.user.user);
-
+  const user = getUserInfo();
   // Meal Data
   const {
     data: mealData,
     error,
     isLoading,
-  } = useGetAllMealForUserQuery(user?._id);
+  } = useGetAllMealForUserQuery(user.id);
 
   const tableHead = [
     {
       index: 0,
       title: "Name",
-      dataIndex: "mealName",
+      dataIndex: "mealTitle",
     },
     {
       index: 1,
       title: "Duration",
-      dataIndex: "duration",
+      dataIndex: "mealDuration",
     },
     {
       index: 2,
       title: "Start Date",
-      dataIndex: "startDate",
+      dataIndex: "createdAt",
     },
   ];
 
@@ -41,18 +41,16 @@ const UserMeal = () => {
     mealData &&
     mealData.map((item) => ({
       ...item, // Spread the existing item properties
-      name: "Meal 1",
-      duration: "3m",
-      startDate: "10/10/1010",
+      mealTitle: item.mealTitle,
+      mealDuration: item.mealDuration,
+      createdAt: item.createdAt,
       data: item,
-      key:  item._id,
+      key: item._id,
     }));
-
-  console.log(updatedMealData);
 
   // Now updatedMealData contains the updated meal data with the additional object
 
-  const handelView = (data) => { 
+  const handelView = (data) => {
     return dispatch(setMealModal(data));
   };
 

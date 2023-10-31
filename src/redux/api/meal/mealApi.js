@@ -5,7 +5,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
     getAllMealForUser: build.query({
       query: (id) => {
         return {
-          url: `/meal/?id=${id}`,
+          url: `/meal/${id}`,
           method: "GET",
         };
       },

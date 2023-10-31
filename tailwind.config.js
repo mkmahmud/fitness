@@ -9,14 +9,15 @@ export default {
     },
     colors: {
       main: "#ff4d37",
-      red: "#ff1313",
+      blackGray: "#212025",
+      sky: "#f7fdff",
       white: "#FFFFFF",
       black: "#000000",
+      //
+      red: "#ff1313",
       gray: "#c4c4c4",
       orange: "#f04e3c",
       whiteGray: "#ededed",
-      blackGray: "#212025",
-      sky: "#f7fdff",
       blue: "#112957",
       whiteGray: "#e9f0f4",
       borderColor: "#e5e6e9",

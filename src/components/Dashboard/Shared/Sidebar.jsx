@@ -25,7 +25,7 @@ const Sidebar = ({ sidebar }) => {
 
   return (
     <div
-      className={`bg-white h-screen border-r    border-gray min-w-[300px] py-4 px-4 ${
+      className={`bg-white h-screen border-r  border-gray min-w-[300px] py-4 px-4 ${
         sidebar ? "block" : "hidden"
       } z-1 md:block absolute md:static`}
     >
