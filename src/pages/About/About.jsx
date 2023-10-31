@@ -9,6 +9,9 @@ import team1 from "../../assets/gallery/team1.png";
 import team2 from "../../assets/gallery/team2.png";
 import team3 from "../../assets/gallery/team3.png";
 import TrainnerCard from "../../components/TrainnerCard/TrainnerCard";
+import Button from "../../components/Buttons/Button";
+import { Link } from "react-router-dom";
+import SubHead from "../../components/Heading/SubHead";
 
 const About = () => {
   return (
@@ -25,29 +28,31 @@ const About = () => {
         </div>
         <div className="py-10 px-4 md:px-10 lg:w-1/2">
           <div className="flex items-center">
-            <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[14px]">
-              About our gym
-            </p>
+            <div className="h-[2px] w-[100px] bg-orange"></div>
+            <SubHead color="main" title="About our gym" />
           </div>
           <h2
-            className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
+            className="text-black text-xl sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
             style={{ fontFamily: "'Teko', sans-serif" }}
           >
             Build Perfect body Shape for good and Healthy life.
           </h2>
-          <p className="text-[16px] text-blackGray">
+          <p className="text-base text-blackGray">
             Brook presents your services with flexible, convenient and cdpose
             layouts. You can select your favorite layouts & elements for cular
             ts with unlimited ustomization possibilities. Pixel-perfect
             replication of the designers is intended.
           </p>
-          <p className="text-[16px] text-gray my-6">
+          <p className="text-base text-blackGray my-6">
             Brook presents your services with flexible, convefnient and chient
             anipurpose layouts. You can select your favorite layouts.
           </p>
           <div className="my-10">
-            <MainButton path="/" content="BECOME A MEMBER"></MainButton>
+            <Button>
+              <Link to="/login" className="md:px-2">
+                Become A Member
+              </Link>
+            </Button>
           </div>
         </div>
       </div>
@@ -83,10 +88,8 @@ const About = () => {
       <div className="bg-white pt-20 pb-10">
         <div className="px-5 ">
           <div className="flex items-center">
-            <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[14px]">
-              Our Team Members
-            </p>
+            <div className="h-[2px] w-[100px] bg-main"></div>
+            <SubHead color="main" title="Our Team Members" />
           </div>
           <div className="lg:flex items-center justify-between">
             <h2
@@ -96,7 +99,11 @@ const About = () => {
               Our Most Exprienced Trainers
             </h2>
             <div className="lg:w-3/12">
-              <MainButton path="/" content="More services"></MainButton>
+              <Button>
+                <Link className="px-2" to="/services">
+                  More Services
+                </Link>
+              </Button>
             </div>
           </div>
         </div>

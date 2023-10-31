@@ -2,10 +2,7 @@ import React from "react";
 
 const SubHead = ({ color, title }) => {
   return (
-    <p
-      className={`text-${color} pl-10 uppercase text-orange text-[15px] font-bold`}
-      style={{ fontFamily: "'Lato', sans-serif" }}
-    >
+    <p className={`text-${color} pl-4   text-sm font-poppins font-semibold`}>
       {title}
     </p>
   );

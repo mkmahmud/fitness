@@ -9,6 +9,7 @@ import {
   storeUserInfo,
 } from "../../service/storeUserInfo";
 import Cookies from "js-cookie";
+import Button from "../../components/Buttons/Button";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -45,15 +46,15 @@ const Login = () => {
       className=" bg-fixed bg-cover bg-center pt-40 pb-6 md:pb-40 xl:h-screen md:flex items-center justify-center"
       style={{ backgroundImage: `url(${sideImage})` }}
     >
-      <div className="bg-[#00000085] py-10 w-[90%] sm:w-[60%]  lg:w-[40%] mx-auto">
+      <div className="bg-[#00000090] py-10 min-w-[400px] max-w-[500px] w-[90%] sm:w-[60%]  lg:w-[40%] mx-auto">
         <div className="px-5 text-center ">
           <div className="flex items-center justify-center">
-            <div className="h-[1px] w-[100px] bg-orange"></div>
-            <p className=" pl-10 uppercase text-orange text-[20px]">Log In</p>
+            <div className="h-[2px] w-[100px] bg-main"></div>
+            <p className=" pl-10 uppercase text-main text-xl">Log In</p>
           </div>
 
           <h2
-            className="text-white text-[29px]  font-bold uppercase py-6 text-center"
+            className="text-white text-extraLarge  font-bold uppercase py-6 text-center"
             style={{ fontFamily: "'Teko', sans-serif" }}
           >
             Wellcome back
@@ -77,18 +78,18 @@ const Login = () => {
             {...register("password", { required: true })}
           />
           <div className="flex">
-            <button
-              className="px-10 py-4 my-10 mx-auto bg-red text-white text-[26px] uppercase font-light"
+            <div
+              className=" my-10 mx-auto  font-popins"
               style={{ fontFamily: "'Teko', sans-serif" }}
             >
-              Log In
-            </button>
+              <Button>Log In</Button>
+            </div>
           </div>
         </form>
         <div className="border-t-2 border-whiteGray mx-auto my-4 w-2/3">
           <p className="text-center text-white text-[20px] py-4">
             Doesn't account{" "}
-            <Link className="text-orange" to="/signup">
+            <Link className="text-main underline" to="/signup">
               Sign Up here
             </Link>
           </p>

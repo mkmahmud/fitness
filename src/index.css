@@ -3,6 +3,5 @@
 @tailwind utilities;
 
 body {
-  font-family: "Teko", sans-serif;
-  font-weight: normal;
+  font-family: "Roboto", sans-serif;
 }
