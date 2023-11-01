@@ -3,9 +3,22 @@ import PageHead from "../../../../components/Dashboard/Shared/Common/PageHead";
 import Table from "../../../../components/Dashboard/Form/Table/Table";
 import { useDispatch } from "react-redux";
 import { setRoutineModal } from "../../../../redux/features/modals/modalSlie";
+import { getUserInfo } from "../../../../service/storeUserInfo";
+import { useGetAllRoutinesForUserQuery } from "../../../../redux/api/routine/routineApi";
 
 const Routine = () => {
+  // redux Dispatch
   const dispatch = useDispatch();
+
+  // User Info
+  const user = getUserInfo();
+
+  // Routine Data
+  const {
+    data: routineData,
+    error,
+    isLoading,
+  } = useGetAllRoutinesForUserQuery(user.id);
 
   const tableHead = [
     {
@@ -18,21 +31,18 @@ const Routine = () => {
       title: "Duration",
       dataIndex: "duration",
     },
-    {
-      index: 2,
-      title: "Start Date",
-      dataIndex: "startDate",
-    },
   ];
 
-  const data = [
-    {
-      name: "Routine 1",
-      duration: "2m",
-      startDate: "10/10/1010",
-      key: "323dafwe4",
-    },
-  ];
+  const data =
+    routineData &&
+    routineData.map((item) => ({
+      ...item,
+      name: item.routineName,
+      duration: item.duration,
+      data: item,
+      key: item._id,
+    }));
+
   const handelView = (data) => {
     return dispatch(setRoutineModal(data));
   };
@@ -41,14 +51,16 @@ const Routine = () => {
     <div>
       <PageHead title="Routine"></PageHead>
       <div className="bg-white rounded-xl">
-        <Table
-          tableFor="Routine"
-          title="Routine"
-          tableHead={tableHead}
-          data={data}
-          isview={true}
-          isviewOption={handelView}
-        ></Table>
+        {data && (
+          <Table
+            tableFor="Routine"
+            title="Routine"
+            tableHead={tableHead}
+            data={data}
+            isview={true}
+            isviewOption={handelView}
+          ></Table>
+        )}
       </div>
     </div>
   );

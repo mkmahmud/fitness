@@ -12,6 +12,7 @@ const UserMeal = () => {
 
   // User
   const user = getUserInfo();
+  
   // Meal Data
   const {
     data: mealData,
