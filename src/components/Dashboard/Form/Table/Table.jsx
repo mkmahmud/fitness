@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import profileImage from "../../../../assets/dashboard/profile.webp";
 import Select from "../Select/Select";
+import Icon from "../../../Buttons/Icon";
 
 const Table = ({
   title,
@@ -10,8 +11,26 @@ const Table = ({
   isedit,
   isdelete,
   isviewOption,
-  isEditOption
+  isEditOption,
 }) => {
+  // Pagination
+  const itemsPerPage = 5;
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentItems = data.slice(indexOfFirstItem, indexOfLastItem);
+
+  const totalPages = Math.ceil(data.length / itemsPerPage);
+
+  const handlePageChange = (page) => {
+    setCurrentPage(page);
+  };
+
+  // Range of items 1-5 of 10
+  const rangeStart = (currentPage - 1) * itemsPerPage + 1;
+  const rangeEnd = Math.min(currentPage * itemsPerPage, data.length);
+
   return (
     <div>
       <div className="  rounded-xl px-4 flex justify-between items-center py-6 bg-white">
@@ -19,8 +38,6 @@ const Table = ({
           <h1 className="text-[20px] font-semibold">{title}</h1>
         </div>
         <div>
-          <Select></Select>
-          <Select></Select>
           <Select></Select>
         </div>
       </div>
@@ -39,7 +56,7 @@ const Table = ({
         </thead>
 
         <tbody>
-          {data.map((user) => {
+          {currentItems.map((user) => {
             return (
               <tr key={user.key}>
                 {tableHead.map((tableHeader, headerIndex) => {
@@ -67,7 +84,7 @@ const Table = ({
                   {isedit && (
                     <button
                       onClick={() => {
-                        isEditOption(user)
+                        isEditOption(user);
                       }}
                       className="  text-blackGray text-[20px]  h-[30px] w-[30px] px-6 rounded  mx-auto text-center"
                     >
@@ -102,12 +119,35 @@ const Table = ({
         </tbody>
       </table>
       <div className="flex justify-between items-center px-4 py-6">
-        <p className="text-gray">1-5 of {data.length}</p>
+        {rangeStart}-{rangeEnd} of {data.length}
         <div>
-          <button className="px-4">1</button>
-          <button className="px-4 text-red">2</button>
-          <button className="px-4">3</button>
-          <button className="px-4"> {`>`} </button>
+          {currentPage > 1 && (
+            <button
+              className="px-4"
+              onClick={() => handlePageChange(currentPage - 1)}
+            >
+              <Icon IconName="fa-solid fa-arrow-left" color="main" size="xl" />
+            </button>
+          )}
+          {Array.from({ length: totalPages }).map((_, index) => (
+            <button
+              key={index}
+              className={`px-4 text-lg ${
+                currentPage === index + 1 ? "text-red" : ""
+              }`}
+              onClick={() => handlePageChange(index + 1)}
+            >
+              {index + 1}
+            </button>
+          ))}
+          {currentPage < totalPages && (
+            <button
+              className="px-4"
+              onClick={() => handlePageChange(currentPage + 1)}
+            >
+              <Icon IconName="fa-solid fa-arrow-right" color="main" size="xl" />
+            </button>
+          )}
         </div>
         <div></div>
       </div>
