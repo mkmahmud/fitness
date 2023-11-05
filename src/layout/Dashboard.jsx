@@ -6,6 +6,10 @@ import AddUser from "../components/Dashboard/AddUser/AddUser";
 import ViewMeal from "../components/Dashboard/ViewMeal/ViewMeal";
 import ViewRoutine from "../components/Dashboard/ViewRoutine/ViewRutine";
 import AddMealPlan from "../components/Dashboard/AddMealPlan/AddMealPlan";
+import AddAvailability from "../components/Dashboard/AddAvailability/AddAvailability";
+import AddTrainer from "../components/Dashboard/AddTrainer/AddTrainer";
+import ViewUser from "../components/Dashboard/ViewUser/ViewUser";
+import { Toaster } from "react-hot-toast";
 
 const Dashboard = () => {
   // handel sidebar
@@ -28,6 +32,12 @@ const Dashboard = () => {
       <ViewMeal></ViewMeal>
       <ViewRoutine></ViewRoutine>
       <AddMealPlan></AddMealPlan>
+      <AddAvailability></AddAvailability>
+      <AddTrainer></AddTrainer>
+      <ViewUser></ViewUser>
+
+      {/* React Hot toast */}
+      <Toaster />
     </div>
   );
 };

@@ -1,15 +1,15 @@
 import React from "react";
 
-const Input = ({ hookForm, name }) => {
+const Input = ({ hookForm, name, type }) => {
   return (
     <div className="my-2 px-2">
       <p className="py-2">{name}:</p>
       <input
-        type="text"
+        type={type ? type : "text"}
         name=""
         {...hookForm}
         placeholder={`Enter your ${name}`}
-        className="bg-whiteGray rounded-full px-4 py-2 text-[16px] outline-none w-full"
+        className="bg-whiteGray   px-4 py-2 text-[16px] outline-none w-full"
         id=""
       />
     </div>

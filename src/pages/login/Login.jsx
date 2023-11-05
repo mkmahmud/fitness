@@ -3,13 +3,9 @@ import sideImage from "../../assets/gallery/contact_form.png";
 import { useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useLoggedInUserMutation } from "../../redux/api/auth/authApi";
-import {
-  getUserInfo,
-  isLoggedUser,
-  storeUserInfo,
-} from "../../service/storeUserInfo";
-import Cookies from "js-cookie";
+import { isLoggedUser, storeUserInfo } from "../../service/storeUserInfo";
 import Button from "../../components/Buttons/Button";
+import toast from "react-hot-toast";
 
 const Login = () => {
   const navigate = useNavigate();
@@ -23,10 +19,12 @@ const Login = () => {
       const response = await loggedInUser({ ...data }).unwrap();
 
       storeUserInfo(response.jwtTocken);
-
-      navigate("/dashboard");
+      toast.success("Login succeeded");
+      if (response) {
+        navigate("/dashboard");
+      }
     } catch (error) {
-      console.log(error);
+      toast.error("Email or password not matched");
     }
   };
 

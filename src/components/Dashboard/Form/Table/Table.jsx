@@ -12,9 +12,11 @@ const Table = ({
   isdelete,
   isviewOption,
   isEditOption,
+  isDeleteOption,
+  perPage,
 }) => {
   // Pagination
-  const itemsPerPage = 5;
+  const itemsPerPage = perPage ? perPage : 5;
   const [currentPage, setCurrentPage] = useState(1);
 
   const indexOfLastItem = currentPage * itemsPerPage;
@@ -33,7 +35,7 @@ const Table = ({
 
   return (
     <div>
-      <div className="  rounded-xl px-4 flex justify-between items-center py-6 bg-white">
+      <div className="    px-4 flex justify-between items-center py-6 bg-white">
         <div>
           <h1 className="text-[20px] font-semibold">{title}</h1>
         </div>
@@ -105,9 +107,9 @@ const Table = ({
                   {isdelete && (
                     <button
                       onClick={() => {
-                        console.log(user);
+                        isDeleteOption(user);
                       }}
-                      className="  text-red text-[20px]  h-[30px] w-[30px] px-6 rounded  mx-auto text-center"
+                      className="  text-main text-[20px]  h-[30px] w-[30px] px-6 rounded  mx-auto text-center"
                     >
                       <i class="fa-solid fa-trash"></i>
                     </button>

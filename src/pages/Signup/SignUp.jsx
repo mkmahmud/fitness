@@ -4,6 +4,7 @@ import { set, useForm } from "react-hook-form";
 import { Link, useNavigate } from "react-router-dom";
 import { useCreateUserMutation } from "../../redux/api/auth/authApi";
 import Button from "../../components/Buttons/Button";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -15,8 +16,11 @@ const SignUp = () => {
   const onSubmit = async (data) => {
     try {
       const response = await createUser(data).unwrap();
-      if (response?.data) {
+      if (response) {
         console.log("User Created Successfully");
+        toast.success("Sign Up succeeded");
+
+        navigate("/dashboard");
       }
     } catch (error) {
       console.log(error);

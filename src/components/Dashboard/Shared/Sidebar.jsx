@@ -25,7 +25,7 @@ const Sidebar = ({ sidebar }) => {
 
   return (
     <div
-      className={`bg-white h-screen border-r  border-gray min-w-[300px] py-4 px-4 ${
+      className={`bg-white h-screen border-r   border-gray min-w-[300px] py-4 px-4 ${
         sidebar ? "block" : "hidden"
       } z-1 md:block absolute md:static`}
     >
@@ -80,29 +80,65 @@ const Sidebar = ({ sidebar }) => {
                 <span className="text-[16px]  mx-2">Routine</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
+            <li
+              className={`${
+                isActive(`${urlPath}/membership`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
               <Link
-                to="/membership"
+                to={`${urlPath}/membership`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-m h-[20px] w-[20px]"></i>
+                <i class="fa-solid fa-m h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Membership</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/trainer" className="flex items-center text-blackGray">
+
+            <li
+              className={`${
+                isActive(`${urlPath}/trainer`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/trainer`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-person-chalkboard h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Trainer</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/activity" className="flex items-center text-blackGray">
-                <i class="fa-solid fa-chart-line h-[20px] w-[20px]"></i>
+
+            <li
+              className={`${
+                isActive(`${urlPath}/activity`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/activity`}
+                className="flex items-center text-blackGray"
+              >
+                <i class="fa-solid fa-chart-line h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Activity</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/payments" className="flex items-center text-blackGray">
+
+            <li
+              className={`${
+                isActive(`${urlPath}/payments`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/payments`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-file-invoice-dollar h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Payments</span>
               </Link>
@@ -238,35 +274,86 @@ const Sidebar = ({ sidebar }) => {
         {/* Super Admin */}
         {role === UserRole.SUPER_ADMIN && (
           <ul>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/admins" className="flex items-center text-blackGray">
+            <li
+              className={`${
+                isActive(`${urlPath}/admins`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/admins`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Admins</span>
               </Link>
             </li>
             <li
-              className={`hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2`}
+              className={`${
+                isActive(`${urlPath}/members`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
             >
-              <Link to="/members" className="flex items-center text-blackGray">
+              <Link
+                to={`${urlPath}/members`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Members</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/trainers" className="flex items-center text-blackGray">
+            <li
+              className={`${
+                isActive(`${urlPath}/trainers`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/trainers`}
+                className="flex items-center text-blackGray"
+              >
                 <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Trainers</span>
               </Link>
             </li>
-            <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-              <Link to="/add-user" className="flex items-center text-blackGray">
-                <i class="fa-solid fa-user h-[20px] w-[20px]"></i>{" "}
-                <span className="text-[16px]  mx-2">Add User</span>
+            <li
+              className={`${
+                isActive(`${urlPath}/plans`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/plans`}
+                className="flex items-center text-blackGray"
+              >
+                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <span className="text-[16px]  mx-2">Plans</span>
               </Link>
             </li>
             <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
+              <p
+                onClick={() => {
+                  dispatch(setUserModal(true));
+                }}
+                className="cursor-pointer flex items-center text-blackGray"
+              >
+                <i class="fa-solid fa-user h-[20px] w-[20px]"></i>{" "}
+                <span className="text-[16px]  mx-2">Add User</span>
+              </p>
+            </li>
+            <li
+              className={`${
+                isActive(`${urlPath}/meal-plan`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
               <Link
-                to="/meal-plan"
+                to={`${urlPath}/meal-plan`}
                 className="flex items-center text-blackGray"
               >
                 <i class="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
@@ -279,8 +366,17 @@ const Sidebar = ({ sidebar }) => {
       <div className="my-4">
         <p className="text-blackGray ">Settings</p>
         <ul>
-          <li className="hover:bg-gray px-4 hover:rounded-r-full hover:border-red hover:border-l-4 my-2 py-2">
-            <Link to="/settings" className="flex items-center text-blackGray">
+          <li
+            className={`${
+              isActive(`/dashboard/settings`)
+                ? "bg-gray rounded-r-full border-red border-l-4"
+                : ""
+            }  px-4 my-2 py-2`}
+          >
+            <Link
+              to={`/dashboard/settings`}
+              className="flex items-center text-blackGray"
+            >
               <i class="fa-solid fa-gear h-[20px] w-[20px]"></i>
               <span className="text-[16px]  mx-2">Genarel Settings</span>
             </Link>

@@ -25,6 +25,12 @@ import TrainerPrivateRoute from "../components/PrivateRoute/TrainerPrivateRoute"
 import Mystudents from "../pages/Dashboard/Trainer/MyStudents/Mystudents";
 import TrainerHome from "../pages/Dashboard/Trainer/Home/Home";
 import Availability from "../pages/Dashboard/Trainer/Availability/Availability";
+import Membership from "../pages/Dashboard/User/Membership/Membership";
+import Trainer from "../pages/Dashboard/User/Trainer/Trainer";
+import Activity from "../pages/Dashboard/User/Activity/Activity";
+import Payments from "../pages/Dashboard/User/Payments/Payments";
+import Settings from "../pages/Dashboard/Settings";
+import Plans from "../pages/Dashboard/Admin/Plans/Plans";
 
 const router = createBrowserRouter([
   {
@@ -151,6 +157,15 @@ const router = createBrowserRouter([
           </AdminPrivateRoute>
         ),
       },
+      {
+        path: "/dashboard/admin/plans",
+        element: (
+          <AdminPrivateRoute>
+            {" "}
+            <Plans></Plans>
+          </AdminPrivateRoute>
+        ),
+      },
       // Users Routing
       {
         path: "/dashboard/user",
@@ -174,6 +189,38 @@ const router = createBrowserRouter([
         element: (
           <UserPrivateRoute>
             <UserMeal></UserMeal>{" "}
+          </UserPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/user/membership",
+        element: (
+          <UserPrivateRoute>
+            <Membership></Membership>
+          </UserPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/user/trainer",
+        element: (
+          <UserPrivateRoute>
+            <Trainer></Trainer>
+          </UserPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/user/activity",
+        element: (
+          <UserPrivateRoute>
+            <Activity></Activity>
+          </UserPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/user/payments",
+        element: (
+          <UserPrivateRoute>
+            <Payments></Payments>
           </UserPrivateRoute>
         ),
       },
@@ -201,6 +248,11 @@ const router = createBrowserRouter([
             <Mystudents></Mystudents>
           </TrainerPrivateRoute>
         ),
+      },
+      // Settings
+      {
+        path: "/dashboard/settings/:value?",
+        element: <Settings></Settings>,
       },
     ],
   },

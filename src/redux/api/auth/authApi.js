@@ -18,7 +18,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         url: "/auth/register",
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/json", 
         },
         data: data,
       }),

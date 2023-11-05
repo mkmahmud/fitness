@@ -36,7 +36,7 @@ const Topbar = ({ sidebar, setSidebar }) => {
       </div>
       <div className="flex space-x-4 items-center ">
         <button className="border border-gray p-2 h-[40px] w-[40px] rounded-lg">
-          <i class="fa-solid fa-bell text-[20px]"></i>
+          <i class="fa-solid fa-bell text-[20px] text-main"></i>
         </button>
         <img
           onClick={() => {
@@ -58,9 +58,13 @@ const Topbar = ({ sidebar, setSidebar }) => {
                 />
                 <span>{user?.id}</span>
               </li>
-              <li className="px-6 py-2  border-b border-gray">
-                <Link to="/signout">
-                  {" "}
+              <li
+                className="px-6 py-2  border-b border-gray"
+                onClick={() => {
+                  setProfile(false);
+                }}
+              >
+                <Link to="/dashboard/settings/change-password">
                   <i class="px-2 fa-solid fa-user-pen"></i>{" "}
                   <span>Change Password</span>
                 </Link>

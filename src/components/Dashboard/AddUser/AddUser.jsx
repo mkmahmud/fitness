@@ -5,12 +5,16 @@ import Input from "../Form/Input/Input";
 import { useForm } from "react-hook-form";
 import Filed from "../Button/Filed";
 import { getUserInfo } from "../../../service/storeUserInfo";
+import { useCreateUserMutation } from "../../../redux/api/auth/authApi";
 
 const AddUser = () => {
   // Create User Account
   const isUserCreate = useSelector((state) => state.modal.user);
   // Set Modal Status
   const dispatch = useDispatch();
+
+  // Create user Account
+  const [createUser, { isLoading, isError }] = useCreateUserMutation();
 
   //   Handel Form Data
   const {
@@ -21,9 +25,15 @@ const AddUser = () => {
     formState: { errors },
   } = useForm();
 
-  const onSubmit = (data) => {
-    console.log(data);
-    reset();
+  const onSubmit = async (data) => {
+    try {
+      const response = await createUser(data);
+      if (response) {
+        console.log("User Created Successfully");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   //   Get User Info
@@ -69,13 +79,13 @@ const AddUser = () => {
                   <div className="my-2 px-2">
                     <p className="py-2">Role:</p>
                     <select
-                      className="bg-whiteGray outline-none border border-gray px-4 py-2 w-full text-[16px]  rounded-full  "
+                      className="bg-whiteGray outline-none border border-gray px-4 py-2 w-full text-[16px]     "
                       name=""
                       id=""
                       {...register("role")}
                     >
-                      {roles.map((role) => (
-                        <option value={role}>{role}</option>
+                      {roles.map((role, i) => (
+                        <option key={i} value={role}>{role}</option>
                       ))}
                     </select>
                   </div>

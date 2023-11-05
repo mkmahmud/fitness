@@ -1,47 +1,50 @@
 import React from "react";
 import Select from "../../../../components/Dashboard/Form/Select/Select";
 import Table from "../../../../components/Dashboard/Form/Table/Table";
+import { useGetAllusersQuery } from "../../../../redux/api/user/userSlice";
+import { setuserDetailsModal } from "../../../../redux/features/modals/modalSlie";
+import { useDispatch } from "react-redux";
 
 const Members = () => {
+  // Dispatch
+  const dispatch = useDispatch();
+
+  //   Get All All Members
+  const { data: users } = useGetAllusersQuery("user");
+
   const tableHead = [
+    {
+      index: 1,
+      title: "ID",
+      dataIndex: "id",
+    },
     {
       index: 0,
       title: "Name",
       dataIndex: "name",
     },
-    {
-      index: 1,
-      title: "Age",
-      dataIndex: "age",
-    },
+
     {
       index: 2,
-      title: "Joined Date",
-      dataIndex: "joinedDate",
-    },
-    {
-      index: 3,
-      title: "Membership",
-      dataIndex: "membership",
+      title: "Email",
+      dataIndex: "email",
     },
   ];
 
-  const data = [
-    {
-      name: "Mahmudul Hasan",
-      age: 20,
-      joinedDate: "10/10/1010",
-      membership: true,
-      key: "323dafwe4",
-    },
-    {
-      name: "Admin Hosen",
-      age: 10,
-      joinedDate: "10/10/1010",
-      membership: false,
-      key: "323dafwd3",
-    },
-  ];
+  const data =
+    users &&
+    users?.user?.map((user) => ({
+      ...user,
+      id: user.id,
+      name: user.fullName,
+      email: user.email,
+      data: user,
+      key: user._id,
+    }));
+
+  const handelView = (data) => {
+    return dispatch(setuserDetailsModal(data));
+  };
 
   return (
     <div>
@@ -51,16 +54,18 @@ const Members = () => {
       {/* Content */}
       <div className="bg-white rounded-xl">
         {/*  Table */}
-
-        <Table
-          title="All Member"
-          tableHead={tableHead}
-          data={data}
-          tableFor="members"
-          isview={true}
-          isedit={true}
-          isdelete={true}
-        ></Table>
+        {data && (
+          <Table
+            title="All Member"
+            tableHead={tableHead}
+            data={data}
+            tableFor="members"
+            isview={true}
+            isviewOption={handelView} 
+            isdelete={true}
+            perPage={10}
+          ></Table>
+        )}
       </div>
     </div>
   );

@@ -1,7 +1,10 @@
 import { getUserInfo } from "../../../../service/storeUserInfo";
 import profileImage from "../../../../assets/dashboard/profile.webp";
 import PageHead from "./PageHead";
-import { useCurrentUserQuery } from "../../../../redux/api/user/userSlice";
+import {
+  useCurrentUserQuery,
+  useGetUserDetailsQuery,
+} from "../../../../redux/api/user/userSlice";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { setUser } from "../../../../redux/features/user/userSlice";
@@ -12,7 +15,10 @@ const Profile = () => {
 
   // User information
   const { data, error, isLoading } = useCurrentUserQuery(user?.id);
- 
+
+  // User Details Information
+  const { data: userDetails } = useGetUserDetailsQuery(user?.id);
+
   // Dispatch
   const dispatch = useDispatch();
   useEffect(() => {
@@ -51,7 +57,11 @@ const Profile = () => {
             </div>
             <div className="w-[2/12]">
               <img
-                src={data?.user?.image ? data?.user?.image : profileImage}
+                src={
+                  userDetails?.user?.profilePhoto
+                    ? userDetails?.user?.profilePhoto
+                    : profileImage
+                }
                 className="h-[200px] w-[200px]"
                 alt=""
               />
