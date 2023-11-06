@@ -13,6 +13,7 @@ import MainButton from "../../components/Buttons/MainButton";
 import SubHead from "../../components/Heading/SubHead";
 import Button from "../../components/Buttons/Button";
 import { Link } from "react-router-dom";
+import SectionHead from "../../components/Heading/SectionHead";
 const Services = () => {
   return (
     <div>
@@ -27,12 +28,10 @@ const Services = () => {
             <SubHead color="main" title="Our Services For You" />
           </div>
           <div className="lg:flex items-center justify-between">
-            <h2
-              className="text-black text-xl sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6 lg:pr-20 lg:w-9/12"
-              style={{ fontFamily: "'Teko', sans-serif" }}
-            >
-              PUSH YOUR LIMITS FORWARD We Offer to you
-            </h2>
+          <SectionHead
+              color="black"
+              title="Push Your Limits Forward We Offer To You "
+            ></SectionHead>
             <div className="lg:w-3/12">
               <Button>
                 <Link to="/login" className="md:px-2">

@@ -71,7 +71,7 @@ const Table = ({
                           </div>
                         ) : (
                           <div className="bg-red text-white px-2 rounded-full w-[100px] mx-auto text-center">
-                            {/* <i class="fa-solid fa-chart-line"></i> */}
+                            {/* <i className="fa-solid fa-chart-line"></i> */}
                             <span>InActive</span>
                           </div>
                         )
@@ -90,7 +90,7 @@ const Table = ({
                       }}
                       className="  text-blackGray text-[20px]  h-[30px] w-[30px] px-6 rounded  mx-auto text-center"
                     >
-                      <i class="fa-solid fa-pen-to-square"></i>
+                      <i className="fa-solid fa-pen-to-square"></i>
                     </button>
                   )}
                   {isview && (
@@ -100,7 +100,7 @@ const Table = ({
                       }}
                       className="   text-black text-[20px]  h-[30px] w-[30px] px-6 rounded  mx-auto text-center"
                     >
-                      <i class="fa-solid fa-eye"></i>
+                      <i className="fa-solid fa-eye"></i>
                     </button>
                   )}
 
@@ -111,7 +111,7 @@ const Table = ({
                       }}
                       className="  text-main text-[20px]  h-[30px] w-[30px] px-6 rounded  mx-auto text-center"
                     >
-                      <i class="fa-solid fa-trash"></i>
+                      <i className="fa-solid fa-trash"></i>
                     </button>
                   )}
                 </td>

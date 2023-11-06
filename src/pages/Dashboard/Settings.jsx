@@ -5,15 +5,20 @@ import Input from "../../components/Dashboard/Form/Input/Input";
 import { useForm } from "react-hook-form";
 import { getUserInfo } from "../../service/storeUserInfo";
 import {
+  useGetUserDetailsQuery,
   useUdpadeUserDetailsMutation,
   useUpdatePasswordMutation,
 } from "../../redux/api/user/userSlice";
 import toast from "react-hot-toast";
 import { useParams } from "react-router-dom";
+import profileImage from "../../assets/dashboard/profile.webp";
 
 const Settings = () => {
   // Get User Information
   const user = getUserInfo();
+
+  // User Details Information
+  const { data: userDetails } = useGetUserDetailsQuery(user?.id);
 
   // Update user Account hook
   const [udpadeUserDetails, { isLoading, isError }] =
@@ -172,18 +177,34 @@ const Settings = () => {
                 {" "}
                 <div className="my-2 px-2">
                   <p className="py-2">Profile Photo</p>
-                  <input
-                    type="file"
-                    className="bg-whiteGray outline-none border border-gray px-4 py-2 w-full text-[16px] "
-                    name=""
-                    id=""
-                    {...register("profile")}
-                  />
+                  <div className="">
+                    <img
+                      src={
+                        userDetails?.user?.profilePhoto
+                          ? userDetails?.user?.profilePhoto
+                          : profileImage
+                      }
+                      className="h-[100px] w-[100px]"
+                      alt=""
+                    />
+                    <input
+                      type="file"
+                      className="bg-whiteGray outline-none border border-gray px-4 py-2 w-full text-[16px] "
+                      name=""
+                      id=""
+                      {...register("profile")}
+                    />
+                  </div>
                 </div>
                 <div className="grid grid-cols-1 md:grid-cols-2 my-4">
                   <Input
                     hookForm={register("phoneNumber")}
                     name="Phone Number"
+                    defaultValue={
+                      userDetails?.user?.phoneNumber
+                        ? userDetails?.user?.phoneNumber
+                        : ""
+                    }
                   ></Input>
                   <div className="my-2 px-2">
                     <p className="py-2">Gender:</p>
@@ -192,6 +213,11 @@ const Settings = () => {
                       name=""
                       id=""
                       {...register("gender")}
+                      defaultValue={
+                        userDetails?.user?.gender
+                          ? userDetails?.user?.gender
+                          : ""
+                      }
                     >
                       <option value="male">Male</option>
                       <option value="female">Female</option>
@@ -206,15 +232,30 @@ const Settings = () => {
                       name=""
                       id=""
                       {...register("dateOfBirth")}
+                      defaultValue={
+                        userDetails?.user?.dateOfBirth
+                          ? userDetails?.user?.dateOfBirth
+                          : ""
+                      }
                     />
                   </div>
                   <Input
                     hookForm={register("presentAddress")}
                     name="Present Address"
+                    defaultValue={
+                      userDetails?.user?.presentAddress
+                        ? userDetails?.user?.presentAddress
+                        : ""
+                    }
                   ></Input>
                   <Input
                     hookForm={register("parmanentAddress")}
                     name="Parmanent Address"
+                    defaultValue={
+                      userDetails?.user?.parmanentAddress
+                        ? userDetails?.user?.parmanentAddress
+                        : ""
+                    }
                   ></Input>
                 </div>
                 <div className="flex justify-end mt-8 w-full">

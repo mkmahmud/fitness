@@ -12,6 +12,7 @@ import TrainnerCard from "../../components/TrainnerCard/TrainnerCard";
 import Button from "../../components/Buttons/Button";
 import { Link } from "react-router-dom";
 import SubHead from "../../components/Heading/SubHead";
+import SectionHead from "../../components/Heading/SectionHead";
 
 const About = () => {
   return (
@@ -31,12 +32,10 @@ const About = () => {
             <div className="h-[2px] w-[100px] bg-orange"></div>
             <SubHead color="main" title="About our gym" />
           </div>
-          <h2
-            className="text-black text-xl sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
-            style={{ fontFamily: "'Teko', sans-serif" }}
-          >
-            Build Perfect body Shape for good and Healthy life.
-          </h2>
+          <SectionHead
+            color="black"
+            title="Build Perfect Body Shape For Good And Healthy Life."
+          ></SectionHead>
           <p className="text-base text-blackGray">
             Brook presents your services with flexible, convenient and cdpose
             layouts. You can select your favorite layouts & elements for cular
@@ -92,12 +91,10 @@ const About = () => {
             <SubHead color="main" title="Our Team Members" />
           </div>
           <div className="lg:flex items-center justify-between">
-            <h2
-              className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6 lg:pr-20 lg:w-9/12"
-              style={{ fontFamily: "'Teko', sans-serif" }}
-            >
-              Our Most Exprienced Trainers
-            </h2>
+          <SectionHead
+              color="black"
+              title="Our Most Exprienced Trainers"
+            ></SectionHead>
             <div className="lg:w-3/12">
               <Button>
                 <Link className="px-2" to="/services">

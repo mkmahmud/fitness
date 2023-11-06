@@ -1,17 +1,9 @@
 import React from "react";
 import heroImage from "../assets/hero/h1_hero.png";
-import MainButton from "../components/Buttons/MainButton";
 import { FaPlay } from "react-icons/fa";
 import aboutImage from "../assets/gallery/about.png";
 import serviceImage from "../assets/gallery/service.png";
 import ServiceCard from "../components/ServiceCard/ServiceCard";
-import {
-  FaDumbbell,
-  FaHeartbeat,
-  FaICursor,
-  FaArrowLeft,
-  FaArrowRight,
-} from "react-icons/fa";
 import FeedbackImage from "../assets/gallery/feedback.png";
 import ClientReviewCard from "../components/ClientReviewCard/ClientReviewCard";
 import gellary1 from "../assets/gallery/gallery1.png";
@@ -25,8 +17,14 @@ import SubHead from "../components/Heading/SubHead";
 import Button from "../components/Buttons/Button";
 import { Link } from "react-router-dom";
 import Icon from "../components/Buttons/Icon";
+import PlanCard from "../components/Plans/PlanCard";
+import { useGetAllMembershipPlanQuery } from "../redux/api/membership/membershipApi";
+import SectionHead from "../components/Heading/SectionHead";
 
 const Home = () => {
+  // Handle Our Plans
+  const { data, isLoading } = useGetAllMembershipPlanQuery();
+
   return (
     <div>
       {/* Hero Section */}
@@ -73,12 +71,10 @@ const Home = () => {
             <div className="h-[2px] w-[100px] bg-orange"></div>
             <SubHead color="main" title="About our gym" />
           </div>
-          <h2
-            className="text-black text-xl sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
-            style={{ fontFamily: "'Teko', sans-serif" }}
-          >
-            Build Perfect body Shape for good and Healthy life.
-          </h2>
+          <SectionHead
+            color="black"
+            title="Build Perfect Body Shape For Good And Healthy Life."
+          ></SectionHead>
           <p className="text-base text-blackGray">
             Brook presents your services with flexible, convenient and cdpose
             layouts. You can select your favorite layouts & elements for cular
@@ -109,12 +105,10 @@ const Home = () => {
             <SubHead color="main" title="Our Services For You" />
           </div>
           <div className="lg:flex items-center justify-between">
-            <h2
-              className="text-white text-xl sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6 lg:pr-20 lg:w-9/12"
-              style={{ fontFamily: "'Teko', sans-serif" }}
-            >
-              PUSH YOUR LIMITS FORWARD We Offer to you
-            </h2>
+            <SectionHead
+              color="white"
+              title="Push Your Limits Forward We Offer To You "
+            ></SectionHead>
             <div className="lg:w-3/12">
               <Button>
                 <Link to="/login" className="md:px-2">
@@ -153,7 +147,7 @@ const Home = () => {
         </div>
       </div>
       {/* Feedback Section */}
-      <div class="my-20 lg:flex items-center justify-between xl:my-40">
+      <div className="my-20 lg:flex items-center justify-between xl:my-40">
         <div className="px-5 lg:w-1/2">
           <img
             className="block mx-auto"
@@ -166,12 +160,11 @@ const Home = () => {
             <div className="h-[2px] w-[100px] bg-main"></div>
             <SubHead color="main" title="Client Feedback" />
           </div>
-          <h2
-            className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6"
-            style={{ fontFamily: "'Teko', sans-serif" }}
-          >
-            What Our Client thik about our gym
-          </h2>
+
+          <SectionHead
+            color="black"
+            title="What Our Client Think About Our Gym"
+          ></SectionHead>
           <div>
             <ClientReviewCard></ClientReviewCard>
             <div className="flex  space-x-4 my-10">
@@ -209,6 +202,26 @@ const Home = () => {
           </div>
         </div>
       </section>
+
+      {/* Our Plans */}
+      <div className="bg-white pt-20 pb-10 px-5">
+        <div className="flex justify-center   mb-10">
+          <div>
+            <div className="flex items-center">
+              <div className="h-[2px] w-[100px] bg-main"></div>
+              <SubHead color="main" title="Be Our Member" />
+            </div>
+            <SectionHead color="black" title="Our Plans"></SectionHead>
+          </div>
+        </div>
+        <div className=" lg:flex justify-center">
+          {data &&
+            data.map((plan) => (
+              <PlanCard key={plan._id} data={plan}></PlanCard>
+            ))}
+        </div>
+      </div>
+
       {/* Team Members */}
       <div className="bg-white pt-20 pb-10">
         <div className="px-5 ">
@@ -217,12 +230,10 @@ const Home = () => {
             <SubHead color="main" title="Our Team Members" />
           </div>
           <div className="lg:flex items-center justify-between">
-            <h2
-              className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6 lg:pr-20 lg:w-9/12"
-              style={{ fontFamily: "'Teko', sans-serif" }}
-            >
-              Our Most Exprienced Trainers
-            </h2>
+            <SectionHead
+              color="black"
+              title="Our Most Exprienced Trainers"
+            ></SectionHead>
             <div className="lg:w-3/12">
               <Button>
                 <Link className="px-2" to="/services">
@@ -246,12 +257,10 @@ const Home = () => {
             <SubHead color="main" title="Our Time Schedule" />
           </div>
           <div className="w-full lg:w-[60%] mx-auto">
-            <h2
-              className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6 text-center"
-              style={{ fontFamily: "'Teko', sans-serif" }}
-            >
-              SELECT THE pERFECT TIME YOU NEED NOW
-            </h2>
+            <SectionHead
+              color="black"
+              title="Select The Perfect Time You Need Now "
+            ></SectionHead>
           </div>
         </div>
         <div className="my-20 font-popins">

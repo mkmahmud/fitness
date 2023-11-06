@@ -1,21 +1,29 @@
 import React from "react";
 import PageHeading from "../../components/PageHeading/PageHeading";
-import { FaHome, FaPhone } from "react-icons/fa";
-import { FiMail } from "react-icons/fi";
 import { useForm } from "react-hook-form";
 import Icon from "../../components/Buttons/Icon";
+import { useSendMessageMutation } from "../../redux/api/Contact/ContactApi";
+import toast from "react-hot-toast";
 
 const Contact = () => {
   const inputStyle =
-    "w-full outline-none pl-[18px] border border-borderColor text-[16px] my-4";
+    "w-full outline-none pl-[18px] bg-white border border-borderColor text-[16px] my-4";
+
+  // Send Message by Redux Hook
+  const [sendMessage] = useSendMessageMutation();
 
   const { register, handleSubmit } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = async (data) => {
+    const res = await sendMessage(data);
+    if (res) {
+      toast.success("Message sent successfully");
+    }
+  };
 
   return (
     <div>
       <PageHeading content="Contact Us"></PageHeading>
-      <div className="mx-4 my-10 md:my-20 md:flex items-center">
+      <div className="mx-4 my-10 md:my-20 md:flex ">
         <div className="md:w-2/3 md:mx-4 ">
           <h2 className="text-large text-blue font-medium">Get In Touch</h2>
           <form onSubmit={handleSubmit(onSubmit)} className="max-w-[600px]">
@@ -28,14 +36,7 @@ const Contact = () => {
               rows="7"
               {...register("message", { required: true })}
             ></textarea>
-            <input
-              type="text"
-              name=""
-              id=""
-              placeholder="Enter Your Name"
-              className={`h-[48px]  ${inputStyle}`}
-              {...register("name", { required: true })}
-            />
+
             <input
               type="email"
               name=""
@@ -43,6 +44,14 @@ const Contact = () => {
               placeholder="Email"
               className={`h-[48px]  ${inputStyle}`}
               {...register("email", { required: true })}
+            />
+            <input
+              type="text"
+              name=""
+              id=""
+              placeholder="Enter Your Name"
+              className={`h-[48px]  ${inputStyle}`}
+              {...register("name", { required: true })}
             />
             <button
               type="submit"

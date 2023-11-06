@@ -41,7 +41,7 @@ const Sidebar = ({ sidebar }) => {
             }  px-4 my-2 py-2`}
           >
             <Link to={urlPath} className="flex items-center text-blackGray">
-              <i class="fa-solid fa-house h-[20px] w-[20px]"></i>{" "}
+              <i className="fa-solid fa-house h-[20px] w-[20px]"></i>{" "}
               <span className="text-[16px]  mx-2">Home</span>
             </Link>
           </li>
@@ -61,7 +61,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/meal`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-scale-unbalanced h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-scale-unbalanced h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">My Meal</span>
               </Link>
             </li>
@@ -76,7 +76,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/routine`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-book h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-book h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Routine</span>
               </Link>
             </li>
@@ -91,7 +91,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/membership`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-m h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-m h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Membership</span>
               </Link>
             </li>
@@ -107,7 +107,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/trainer`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-person-chalkboard h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-person-chalkboard h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Trainer</span>
               </Link>
             </li>
@@ -123,7 +123,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/activity`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-chart-line h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-chart-line h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Activity</span>
               </Link>
             </li>
@@ -139,7 +139,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/payments`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-file-invoice-dollar h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-file-invoice-dollar h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Payments</span>
               </Link>
             </li>
@@ -160,7 +160,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/students`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">My Students</span>
               </Link>
             </li>
@@ -175,7 +175,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/availability`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-timeline h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-timeline h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Availabiity</span>
               </Link>
             </li>
@@ -186,7 +186,7 @@ const Sidebar = ({ sidebar }) => {
                 }}
                 className="flex items-center text-blackGray cursor-pointer"
               >
-                <i class="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Add Meal Plan</span>
               </p>
             </li>
@@ -208,7 +208,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/members`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Members</span>
               </Link>
             </li>
@@ -223,7 +223,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/trainers`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Trainers</span>
               </Link>
             </li>
@@ -238,7 +238,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/plans`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-pen-nib h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Plans</span>
               </Link>
             </li>
@@ -249,7 +249,7 @@ const Sidebar = ({ sidebar }) => {
                 }}
                 className="cursor-pointer flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-user h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-user h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Add User</span>
               </p>
             </li>
@@ -264,8 +264,23 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/meal-plan`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Meal Plan</span>
+              </Link>
+            </li>
+            <li
+              className={`${
+                isActive(`${urlPath}/messages`)
+                  ? "bg-gray rounded-r-full border-red border-l-4"
+                  : ""
+              }  px-4 my-2 py-2`}
+            >
+              <Link
+                to={`${urlPath}/messages`}
+                className="flex items-center text-blackGray"
+              >
+                <i className="fa-solid fa-message h-[20px] w-[20px]"></i>{" "}
+                <span className="text-[16px]  mx-2">New Message <sup className="text-main">10</sup> </span>
               </Link>
             </li>
           </ul>
@@ -285,7 +300,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/admins`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Admins</span>
               </Link>
             </li>
@@ -300,7 +315,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/members`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Members</span>
               </Link>
             </li>
@@ -315,7 +330,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/trainers`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Trainers</span>
               </Link>
             </li>
@@ -330,7 +345,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/plans`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-users h-[20px] w-[20px]"></i>
+                <i className="fa-solid fa-users h-[20px] w-[20px]"></i>
                 <span className="text-[16px]  mx-2">Plans</span>
               </Link>
             </li>
@@ -341,7 +356,7 @@ const Sidebar = ({ sidebar }) => {
                 }}
                 className="cursor-pointer flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-user h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-user h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Add User</span>
               </p>
             </li>
@@ -356,7 +371,7 @@ const Sidebar = ({ sidebar }) => {
                 to={`${urlPath}/meal-plan`}
                 className="flex items-center text-blackGray"
               >
-                <i class="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
+                <i className="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
                 <span className="text-[16px]  mx-2">Meal Plan</span>
               </Link>
             </li>
@@ -377,7 +392,7 @@ const Sidebar = ({ sidebar }) => {
               to={`/dashboard/settings`}
               className="flex items-center text-blackGray"
             >
-              <i class="fa-solid fa-gear h-[20px] w-[20px]"></i>
+              <i className="fa-solid fa-gear h-[20px] w-[20px]"></i>
               <span className="text-[16px]  mx-2">Genarel Settings</span>
             </Link>
           </li>

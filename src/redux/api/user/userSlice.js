@@ -10,6 +10,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags:['userDetails']
     }),
     // Get All Users
     getAllusers: build.query({
@@ -19,6 +20,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags:['userDetails']
     }),
     // Get user Details
     getUserDetails: build.query({
@@ -28,6 +30,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags:['userDetails']
     }),
     // Update user Details
     udpadeUserDetails: build.mutation({

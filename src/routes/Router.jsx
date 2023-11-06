@@ -31,6 +31,7 @@ import Activity from "../pages/Dashboard/User/Activity/Activity";
 import Payments from "../pages/Dashboard/User/Payments/Payments";
 import Settings from "../pages/Dashboard/Settings";
 import Plans from "../pages/Dashboard/Admin/Plans/Plans";
+import NewMessages from "../pages/Dashboard/Admin/NewMessages/NewMessages";
 
 const router = createBrowserRouter([
   {
@@ -154,6 +155,15 @@ const router = createBrowserRouter([
           <AdminPrivateRoute>
             {" "}
             <MealPlan></MealPlan>{" "}
+          </AdminPrivateRoute>
+        ),
+      },
+      {
+        path: "/dashboard/admin/messages",
+        element: (
+          <AdminPrivateRoute>
+            {" "}
+            <NewMessages></NewMessages>
           </AdminPrivateRoute>
         ),
       },

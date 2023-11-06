@@ -3,7 +3,7 @@ import profileImage from "../../../assets/dashboard/profile.png";
 import { Link, useNavigate } from "react-router-dom";
 import { getUserInfo, logOut } from "../../../service/storeUserInfo";
 import logo from "../../../assets/logo/logo.png";
-import { useCurrentUserQuery } from "../../../redux/api/user/userSlice";
+import { useCurrentUserQuery, useGetUserDetailsQuery } from "../../../redux/api/user/userSlice";
 const Topbar = ({ sidebar, setSidebar }) => {
   // Handel Profile Button
   const [profile, setProfile] = useState(false);
@@ -13,6 +13,9 @@ const Topbar = ({ sidebar, setSidebar }) => {
 
   // User information
   const { data, error, isLoading } = useCurrentUserQuery(user?.id);
+
+  // User Details Information
+  const { data: userDetails } = useGetUserDetailsQuery(user?.id);
 
   // Navigation
   const navigation = useNavigate();
@@ -31,19 +34,23 @@ const Topbar = ({ sidebar, setSidebar }) => {
             setSidebar(!sidebar);
           }}
         >
-          <i class="fa-solid fa-bars text-red text-[25px]"></i>
+          <i className="fa-solid fa-bars text-red text-[25px]"></i>
         </button>
       </div>
       <div className="flex space-x-4 items-center ">
-        <button className="border border-gray p-2 h-[40px] w-[40px] rounded-lg">
-          <i class="fa-solid fa-bell text-[20px] text-main"></i>
+        <button className="border border-gray p-2 h-[40px] w-[40px]  ">
+          <i className="fa-solid fa-bell text-[20px] text-main"></i>
         </button>
         <img
           onClick={() => {
             setProfile(!profile);
           }}
-          src={data?.user?.image ? data?.user?.image : profileImage}
-          className="h-[40px] w-[40px] cursor-pointer"
+          src={
+            userDetails?.user?.profilePhoto
+              ? userDetails?.user?.profilePhoto
+              : logo
+          }
+          className="h-[40px] w-[40px] cursor-pointer border border-gray p-1"
           alt="Profile"
         />
         {profile && (
@@ -65,7 +72,7 @@ const Topbar = ({ sidebar, setSidebar }) => {
                 }}
               >
                 <Link to="/dashboard/settings/change-password">
-                  <i class="px-2 fa-solid fa-user-pen"></i>{" "}
+                  <i className="px-2 fa-solid fa-user-pen"></i>{" "}
                   <span>Change Password</span>
                 </Link>
               </li>
@@ -77,7 +84,7 @@ const Topbar = ({ sidebar, setSidebar }) => {
                 }}
               >
                 <p>
-                  <i class="px-2 fa-solid fa-right-from-bracket "></i>{" "}
+                  <i className="px-2 fa-solid fa-right-from-bracket "></i>{" "}
                   <span>Sign Out</span>
                 </p>
               </li>

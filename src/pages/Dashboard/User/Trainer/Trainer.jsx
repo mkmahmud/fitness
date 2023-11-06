@@ -3,20 +3,29 @@ import PageHead from "../../../../components/Dashboard/Shared/Common/PageHead";
 import Table from "../../../../components/Dashboard/Form/Table/Table";
 import { setTrainerModal } from "../../../../redux/features/modals/modalSlie";
 import { useDispatch } from "react-redux";
+import { useGetTrainersForStudentQuery } from "../../../../redux/api/TrainersAndUsers/TrainersAndUsers";
+import { getUserInfo } from "../../../../service/storeUserInfo";
 
 const Trainer = () => {
   // dispatch
   const dispatch = useDispatch();
+
+  // User Information
+  const user = getUserInfo();
+
+  // Get Trainer
+  const { data: trainers, isLoading } = useGetTrainersForStudentQuery(user.id);
+
   const tableHead = [
     {
       index: 0,
-      title: "Name",
-      dataIndex: "name",
+      title: "Trainer Id",
+      dataIndex: "trainer",
     },
     {
       index: 1,
-      title: "Duration",
-      dataIndex: "duration",
+      title: "Added Time",
+      dataIndex: "addedTime",
     },
   ];
 
@@ -27,6 +36,15 @@ const Trainer = () => {
       key: "23rwe",
     },
   ];
+  const updatedMealData =
+    trainers &&
+    trainers.map((item) => ({
+      ...item, // Spread the existing item properties
+      trainer: item.trainer,
+      addedTime: item.createdAt,
+      data: item,
+      key: item._id,
+    }));
 
   const handelView = async (data) => {
     return console.log(data);
@@ -46,14 +64,16 @@ const Trainer = () => {
         </button>
       </div>
       <div className="bg-white rounded-xl">
-        <Table
-          tableFor="CurrentTrainer"
-          title="CurrentTrainer"
-          tableHead={tableHead}
-          data={data}
-          isview={true}
-          isviewOption={handelView}
-        ></Table>
+        {trainers && (
+          <Table
+            tableFor="CurrentTrainer"
+            title="CurrentTrainer"
+            tableHead={tableHead}
+            data={updatedMealData}
+            isview={true}
+            isviewOption={handelView}
+          ></Table>
+        )}
       </div>
     </div>
   );

@@ -5,6 +5,9 @@ const Membership = () => {
   return (
     <div>
       <PageHead title="Membership"></PageHead>
+      <div>
+        
+      </div>
     </div>
   );
 };

@@ -1,6 +1,7 @@
 import React from "react";
 import PageHeading from "../../components/PageHeading/PageHeading";
 import SubHead from "../../components/Heading/SubHead";
+import SectionHead from "../../components/Heading/SectionHead";
 
 const Schedule = () => {
   return (
@@ -13,12 +14,10 @@ const Schedule = () => {
             <SubHead color="main" title="Our Time Schedule" />
           </div>
           <div className="w-full lg:w-[60%] mx-auto">
-            <h2
-              className="text-black text-[29px] sm:text-[44px] md:text-[70px] md:leading-none  font-bold uppercase py-6 text-center"
-              style={{ fontFamily: "'Teko', sans-serif" }}
-            >
-              SELECT THE pERFECT TIME YOU NEED NOW
-            </h2>
+          <SectionHead
+              color="black"
+              title="Select The Perfect Time You Need Now "
+            ></SectionHead>
           </div>
         </div>
         <div className="my-20 font-popins">

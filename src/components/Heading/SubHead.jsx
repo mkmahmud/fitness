@@ -9,3 +9,4 @@ const SubHead = ({ color, title }) => {
 };
 
 export default SubHead;
+ 
