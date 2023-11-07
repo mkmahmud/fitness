@@ -58,7 +58,7 @@ const AddUser = () => {
                   dispatch(setUserModal(false));
                 }}
               >
-                <i class="fa-solid fa-xmark"></i>
+                <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
             <div>

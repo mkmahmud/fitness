@@ -6,7 +6,7 @@ export const apiSlice = createApi({
   reducerPath: "api",
   baseQuery: axiosBaseQuery({ baseUrl: getUrl() }),
   endpoints: () => ({}),
-  tagTypes: ["user", "availabilities", "userDetails", "TrainerAndUser", "contact"],
+  tagTypes: ["user", "availabilities", "userDetails", "TrainerAndUser", "contact", "membership"],
 });
 
 // Export the auto-generated hook for the `getPosts` query endpoint

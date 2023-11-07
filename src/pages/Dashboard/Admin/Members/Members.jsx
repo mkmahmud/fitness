@@ -1,9 +1,13 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Select from "../../../../components/Dashboard/Form/Select/Select";
 import Table from "../../../../components/Dashboard/Form/Table/Table";
-import { useGetAllusersQuery } from "../../../../redux/api/user/userSlice";
+import {
+  useGetAllusersQuery,
+  useGetUserDetailsQuery,
+} from "../../../../redux/api/user/userSlice";
 import { setuserDetailsModal } from "../../../../redux/features/modals/modalSlie";
 import { useDispatch } from "react-redux";
+import Spinner from "../../../../components/Dashboard/Shared/Common/Spinner";
 
 const Members = () => {
   // Dispatch
@@ -51,6 +55,10 @@ const Members = () => {
       <div className="flex justify-between my-6">
         <h1 className="font-semibold text-[30px]">Members</h1>
       </div>
+
+      {/* Loader */}
+      {!data && <Spinner />}
+
       {/* Content */}
       <div className="bg-white rounded-xl">
         {/*  Table */}
@@ -61,7 +69,7 @@ const Members = () => {
             data={data}
             tableFor="members"
             isview={true}
-            isviewOption={handelView} 
+            isviewOption={handelView}
             isdelete={true}
             perPage={10}
           ></Table>

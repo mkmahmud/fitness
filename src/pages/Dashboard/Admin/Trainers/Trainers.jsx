@@ -4,6 +4,7 @@ import Table from "../../../../components/Dashboard/Form/Table/Table";
 import { useGetAllusersQuery } from "../../../../redux/api/user/userSlice";
 import { useDispatch } from "react-redux";
 import { setuserDetailsModal } from "../../../../redux/features/modals/modalSlie";
+import Spinner from "../../../../components/Dashboard/Shared/Common/Spinner";
 
 const Trainers = () => {
   // dispatch
@@ -50,6 +51,10 @@ const Trainers = () => {
       <div className="flex justify-between my-6">
         <h1 className="font-semibold text-[30px]">Trainers</h1>
       </div>
+
+      {/* Loader */}
+      {!data && <Spinner />}
+
       {/* Content */}
       <div className="bg-white rounded-xl">
         {data && (
@@ -59,7 +64,7 @@ const Trainers = () => {
             data={data}
             tableFor="trainers"
             isview={true}
-            isviewOption={handelView} 
+            isviewOption={handelView}
             isdelete={true}
           ></Table>
         )}

@@ -27,7 +27,7 @@ const Sidebar = ({ sidebar }) => {
     <div
       className={`bg-white h-screen border-r   border-gray min-w-[300px] py-4 px-4 ${
         sidebar ? "block" : "hidden"
-      } z-1 md:block absolute md:static`}
+      } z-1 md:block absolute md:sticky left-0 top-[60px] `}
     >
       <div className="my-4">
         <p className="text-blackGray ">Management</p>
@@ -280,7 +280,7 @@ const Sidebar = ({ sidebar }) => {
                 className="flex items-center text-blackGray"
               >
                 <i className="fa-solid fa-message h-[20px] w-[20px]"></i>{" "}
-                <span className="text-[16px]  mx-2">New Message <sup className="text-main">10</sup> </span>
+                <span className="text-[16px]  mx-2">New Message <sup className="text-main"> </sup> </span>
               </Link>
             </li>
           </ul>

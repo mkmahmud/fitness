@@ -5,12 +5,13 @@ import {
   useMarkAsReadMutation,
 } from "../../../../redux/api/Contact/ContactApi";
 import Table from "../../../../components/Dashboard/Form/Table/Table";
+import Spinner from "../../../../components/Dashboard/Shared/Common/Spinner";
 
 const NewMessages = () => {
   // Dispatch
   const dispatch = useDispatch();
 
-  //   Get All All Members
+  //   Get All All Messages
   const { data: messages } = useGetAllMessagesQuery();
 
   //   Handel Mark As Read
@@ -73,6 +74,9 @@ const NewMessages = () => {
       <div className="flex justify-between my-6">
         <h1 className="font-semibold text-[30px]">Messages</h1>
       </div>
+
+      {/* Loader */}
+      {!data && <Spinner />}
 
       <div className="bg-white rounded-xl">
         {/*  Table */}

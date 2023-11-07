@@ -40,7 +40,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
         headers: {
           "Content-Type": "application/json",
         },
-        data: data,
+        data: data, 
       }),
       invalidatesTags: ["userDetails"],
     }),

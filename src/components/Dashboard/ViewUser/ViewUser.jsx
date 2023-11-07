@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   setRoutineModal,
@@ -10,11 +10,16 @@ import Input from "../Form/Input/Input";
 import Filed from "../Button/Filed";
 import { useForm } from "react-hook-form";
 import DisabledFiled from "../Form/Input/DisabledFiled";
+import { useGetUserDetailsQuery } from "../../../redux/api/user/userSlice";
 
 const ViewUser = () => {
   // Get User details
   const data = useSelector((state) => state.modal.userDetails);
-  const { fullName, id, email } = data?.data?.data;
+  const { fullName, id, email, role } = data?.data?.data;
+
+  // Full User Details
+  const { data: userDetails } = useGetUserDetailsQuery(id);
+  console.log(userDetails?.user);
   // Set Modal Status
   const dispatch = useDispatch();
 
@@ -37,22 +42,28 @@ const ViewUser = () => {
                   dispatch(setuserDetailsModal({ isOpen: false, data: {} }));
                 }}
               >
-                <i class="fa-solid fa-xmark"></i>
+                <i className="fa-solid fa-xmark"></i>
               </button>
             </div>
             <div className="my-4">
               <div className="md:flex border-gray border-t ">
                 <div className="w-full md:w-3/12 py-6">
                   <img
-                    src={profile}
+                    src={
+                      userDetails?.user?.profilePhoto
+                        ? userDetails?.user?.profilePhoto
+                        : profile
+                    }
                     className="h-[200px] w-[200px] block mx-auto"
                     alt="Profile"
                   />
                   <div className="text-center my-4">
-                    <h1 className="text-extraLarge text-semibold">User Name</h1>
-                    <h4 className="text-xl">Id: M-0001</h4>
-                    <h4 className="text-lg text-main">user@gmail.com</h4>
-                    <h4 className="text-lg text-main">+8801249328</h4>
+                    <h1 className="text-extraLarge text-semibold">
+                      {fullName}
+                    </h1>
+                    <h4 className="text-xl">Id: {id}</h4>
+                    <h4 className="text-lg text-main">{email}</h4>
+
                     <div className="my-6">
                       <Filed type="button" content="Actions"></Filed>
                     </div>
@@ -80,34 +91,43 @@ const ViewUser = () => {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 border-gray border-t px-4">
-                    <DisabledFiled
-                      data={fullName}
-                      name="Full Name"
-                    ></DisabledFiled>
-                    <DisabledFiled data={id} name="ID"></DisabledFiled>
-                    <DisabledFiled data={email} name="Email"></DisabledFiled>
-                    <DisabledFiled
-                      data="Active"
-                      name="Membership"
-                      bg="lightGreen"
-                      color="black"
-                    ></DisabledFiled>
-                    <DisabledFiled
-                      data="092348129"
-                      name="PHone Number"
-                    ></DisabledFiled>
-                    <DisabledFiled data="Male" name="Gender"></DisabledFiled>
-                    <DisabledFiled
-                      data="22/23/2303"
-                      name="Date of Birth"
-                    ></DisabledFiled>
-                    <DisabledFiled data="Member" name="Role"></DisabledFiled>
-                    <DisabledFiled
-                      data="22/23/2303 "
-                      name="Joined Date"
-                    ></DisabledFiled>
-                  </div>
+                  {userDetails?.user && (
+                    <div className="grid grid-cols-1 md:grid-cols-2 border-gray border-t px-4">
+                      <DisabledFiled
+                        data={fullName}
+                        name="Full Name"
+                      ></DisabledFiled>
+                      <DisabledFiled data={id} name="ID"></DisabledFiled>
+                      <DisabledFiled data={email} name="Email"></DisabledFiled>
+                      <DisabledFiled
+                        data="Active"
+                        name="Membership"
+                        bg="lightGreen"
+                        color="black"
+                      ></DisabledFiled>
+                      <DisabledFiled
+                        data={userDetails?.user?.phoneNumber && userDetails?.user?.phoneNumber}
+                        name="Phone Number"
+                      ></DisabledFiled>
+                      <DisabledFiled
+                        data={userDetails?.user?.gender}
+                        name="Gender"
+                      ></DisabledFiled>
+                      <DisabledFiled
+                        data={userDetails?.user?.dateOfBirth}
+                        name="Date of Birth"
+                      ></DisabledFiled>
+                      <DisabledFiled data={role} name="Role"></DisabledFiled>
+                      <DisabledFiled
+                        data={userDetails?.user?.presentAddress}
+                        name="Present Address"
+                      ></DisabledFiled>
+                      <DisabledFiled
+                        data={userDetails?.user?.parmanentAddress}
+                        name="Parmanent Address"
+                      ></DisabledFiled>
+                    </div>
+                  )}
                 </div>
               </div>
             </div>

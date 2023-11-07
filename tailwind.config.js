@@ -13,6 +13,7 @@ export default {
       sky: "#f7fdff",
       white: "#FFFFFF",
       black: "#000000",
+
       //
       red: "#ff1313",
       gray: "#c4c4c4",

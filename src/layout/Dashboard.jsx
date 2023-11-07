@@ -17,13 +17,13 @@ const Dashboard = () => {
 
   return (
     <div
-      className="overflow-hidden h-screen"
+      className="overflow-y-auto h-screen"
       style={{ fontFamily: "'Lexend', sans-serif" }}
     >
       <Topbar sidebar={sidebar} setSidebar={setSidebar}></Topbar>
-      <div className="mt-[60px] flex">
+      <div className="mt-[60px] flex ">
         <Sidebar sidebar={sidebar}></Sidebar>
-        <div className="overflow-scroll bg-[#fff2f2] w-full px-4 py-6">
+        <div className="  bg-[#fff2f2] w-full px-4 py-6">
           <Outlet></Outlet>
         </div>{" "}
       </div>
