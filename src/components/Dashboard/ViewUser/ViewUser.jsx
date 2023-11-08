@@ -19,7 +19,7 @@ const ViewUser = () => {
 
   // Full User Details
   const { data: userDetails } = useGetUserDetailsQuery(id);
-  console.log(userDetails?.user);
+
   // Set Modal Status
   const dispatch = useDispatch();
 

@@ -10,8 +10,7 @@ const Mystudents = () => {
 
   // get All Students
   const { data: students } = useGetAllStudentsForTrainerQuery(user.id);
-  console.log(students);
-
+ 
   const tableHead = [
     {
       index: 1,
