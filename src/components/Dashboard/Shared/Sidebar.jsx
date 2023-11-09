@@ -253,21 +253,7 @@ const Sidebar = ({ sidebar }) => {
                 <span className="text-[16px]  mx-2">Add User</span>
               </p>
             </li>
-            <li
-              className={`${
-                isActive(`${urlPath}/meal-plan`)
-                  ? "bg-gray rounded-r-full border-red border-l-4"
-                  : ""
-              }  px-4 my-2 py-2`}
-            >
-              <Link
-                to={`${urlPath}/meal-plan`}
-                className="flex items-center text-blackGray"
-              >
-                <i className="fa-solid fa-bowl-food h-[20px] w-[20px]"></i>{" "}
-                <span className="text-[16px]  mx-2">Meal Plan</span>
-              </Link>
-            </li>
+
             <li
               className={`${
                 isActive(`${urlPath}/messages`)
@@ -280,7 +266,9 @@ const Sidebar = ({ sidebar }) => {
                 className="flex items-center text-blackGray"
               >
                 <i className="fa-solid fa-message h-[20px] w-[20px]"></i>{" "}
-                <span className="text-[16px]  mx-2">New Message <sup className="text-main"> </sup> </span>
+                <span className="text-[16px]  mx-2">
+                  New Message <sup className="text-main"> </sup>{" "}
+                </span>
               </Link>
             </li>
           </ul>

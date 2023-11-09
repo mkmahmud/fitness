@@ -34,6 +34,7 @@ const Contact = () => {
               id=""
               cols="30"
               rows="7"
+              maxlength="200"
               {...register("message", { required: true })}
             ></textarea>
 

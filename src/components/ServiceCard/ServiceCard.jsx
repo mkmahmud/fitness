@@ -1,4 +1,4 @@
-  import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Icon from "../Buttons/Icon";
 
 const ServiceCard = ({ icon, title, description, path, content, status }) => {
@@ -9,7 +9,12 @@ const ServiceCard = ({ icon, title, description, path, content, status }) => {
           status ? "text-orange" : ""
         }`}
       >
-        <Icon IconName={icon} color="main" size="[50px]"></Icon>
+        <i
+          className={`${icon} text-gray text-[40px]  group-hover:text-main my-4 ${
+            status ? "text-orange" : ""
+          } `}
+        ></i>
+        ;
       </div>
       <div className="my-6">
         <Link className="uppercase text-large font-semibold " to="/services">

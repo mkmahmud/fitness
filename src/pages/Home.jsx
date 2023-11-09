@@ -120,7 +120,7 @@ const Home = () => {
         </div>
         <div className="md:flex justify-center">
           <ServiceCard
-            icon="fa-solid fa-dumbbell"
+            icon="fa-solid fa-notes-medical"
             title="health caring"
             description="The sea freight service has grown considerably in recent years. We spend
             time getting to know..."
@@ -137,8 +137,8 @@ const Home = () => {
             content="Discover more About us"
           ></ServiceCard>
           <ServiceCard
-            icon="fa-solid fa-dumbbell"
-            title="gym strategies"
+            icon="fa-regular fa-chess-rook"
+            title="gym strategies" 
             description="The sea freight service has grown considerably in recent years. We spend
             time getting to know..."
             path="/services"
@@ -250,7 +250,7 @@ const Home = () => {
         </div>
       </div>
       {/* Time Schedule */}
-      <div className="bg-white pt-20 pb-10">
+      {/* <div className="bg-white pt-20 pb-10">
         <div className="px-5 text-center ">
           <div className="flex items-center justify-center">
             <div className="h-[2px] w-[100px] bg-main"></div>
@@ -313,7 +313,7 @@ const Home = () => {
             </li>
           </ul>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
