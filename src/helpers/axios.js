@@ -1,7 +1,6 @@
-import { getFromLocalStorage } from "../utils/LocalStorage";
 import { instance } from "./instanstance";
 
- export const axiosBaseQuery =
+export const axiosBaseQuery =
   ({ baseUrl } = { baseUrl: "" }) =>
   async ({ url, method, data, params, contentType }) => {
     try {
