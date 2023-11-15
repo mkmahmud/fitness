@@ -85,7 +85,7 @@ const Plans = () => {
                     <h2>Features:</h2>
                     <ul>
                       {fields.map((field, index) => (
-                        <li className="my-2">
+                        <li className="my-2" key={index}>
                           <input
                             key={field.id}
                             type="text"

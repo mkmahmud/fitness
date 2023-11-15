@@ -64,8 +64,7 @@ const Trainers = () => {
             data={data}
             tableFor="trainers"
             isview={true}
-            isviewOption={handelView}
-            isdelete={true}
+            isviewOption={handelView} 
           ></Table>
         )}
       </div>

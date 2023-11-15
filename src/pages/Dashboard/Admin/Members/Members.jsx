@@ -69,8 +69,7 @@ const Members = () => {
             data={data}
             tableFor="members"
             isview={true}
-            isviewOption={handelView}
-            isdelete={true}
+            isviewOption={handelView} 
             perPage={10}
           ></Table>
         )}

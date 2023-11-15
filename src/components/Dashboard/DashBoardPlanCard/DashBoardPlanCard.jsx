@@ -56,8 +56,26 @@ const DashboardPlanCard = ({ data }) => {
   const [deletePlan] = useDeletePlanMutation();
 
   const handleDelete = async () => {
-    const res = await deletePlan(id);
-    toast.success("Plan Deleted Successfully");
+    // Display a confirmation dialog
+    const confirmDelete = window.confirm(
+      "Are you sure you want to delete this plan?"
+    );
+
+    if (confirmDelete) {
+      // User clicked OK in the confirmation dialog
+      try {
+        const res = await deletePlan(id);
+        toast.success("Plan Deleted Successfully");
+      } catch (error) {
+        // Handle errors if necessary
+        console.error("Error deleting plan:", error);
+        toast.error("Error deleting plan");
+      }
+    } else {
+      // User clicked Cancel in the confirmation dialog
+      // You can add additional logic here if needed
+      console.log("Deletion cancelled");
+    }
   };
 
   return (
@@ -131,7 +149,7 @@ const DashboardPlanCard = ({ data }) => {
               {isEdit ? (
                 <>
                   {data?.plans.map((plan, index) => (
-                    <li className="my-2" key={plan.index}>
+                    <li className="my-2" key={index}>
                       <input
                         type="text"
                         className="bg-whiteGray   px-4 py-2 text-[16px] outline-none w-full"
@@ -146,8 +164,8 @@ const DashboardPlanCard = ({ data }) => {
               ) : (
                 <>
                   {" "}
-                  {data?.plans.map((plan) => (
-                    <li className="my-2" key={plan.index}>
+                  {data?.plans.map((plan, index) => (
+                    <li className="my-2" key={index}>
                       {" "}
                       <i className="fa-solid fa-check mx-2 text-lightGreen"></i>{" "}
                       <span>{plan.title}</span>

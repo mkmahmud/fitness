@@ -5,3 +5,7 @@
 body {
   font-family: "Roboto", sans-serif;
 }
+
+#myVideo::-webkit-media-controls-panel {
+  color: white;
+}
