@@ -1,18 +1,12 @@
 import React from "react";
 
-const ClientReviewCard = () => {
+const ClientReviewCard = ({ feedback, name, title }) => {
   return (
     <div>
-      <p className="text-base text-blackGray my-6">
-        Brook presents your services with flexible, convefnient and chient
-        anipurpose layouts. You can select your favorite layouts.
-        anipurpose layouts. You can select your favorite layouts.
-        anipurpose layouts. You can select your favorite layouts.
-        anipurpose layouts. You can select your favorite layouts.
-      </p> 
+      <p className="text-base text-blackGray my-6">{feedback}</p>
       <div className="flex items-center text-popins">
-        <h2 className="text-large font-bold">Jhon Doe</h2>
-        <p className="px-4">Manager, IOTI</p>
+        <h2 className="text-large font-bold">{name}</h2>
+        <p className="px-4">{title}</p>
       </div>
     </div>
   );

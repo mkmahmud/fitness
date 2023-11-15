@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import heroImage from "../assets/hero/h1_hero.png";
 import { FaPlay } from "react-icons/fa";
 import aboutImage from "../assets/gallery/about.png";
@@ -20,10 +20,50 @@ import Icon from "../components/Buttons/Icon";
 import PlanCard from "../components/Plans/PlanCard";
 import { useGetAllMembershipPlanQuery } from "../redux/api/membership/membershipApi";
 import SectionHead from "../components/Heading/SectionHead";
+import HeroVideo from "../components/Video/HeroVideo";
 
 const Home = () => {
   // Handle Our Plans
   const { data, isLoading } = useGetAllMembershipPlanQuery();
+
+  // Testimonials
+  const testimonials = [
+    {
+      name: "Sarah Turner",
+      feedback:
+        "I love this gym! The trainers are knowledgeable and motivating, the equipment is top-notch, and the atmosphere is always welcoming. I've seen fantastic results since I joined.",
+      title: " Fitness Enthusiast",
+    },
+    {
+      name: "David Rodriguez",
+      feedback:
+        "I've been a member of this gym for a year, and I couldn't be happier. The cleanliness and hygiene standards are excellent, and the staff is friendly and helpful.",
+      title: "Loyal Member",
+    },
+    {
+      name: "Emily Foster",
+      feedback:
+        "The group fitness classes at this gym are outstanding. The instructors are passionate and energetic, and the variety of classes keeps me engaged and motivated to work out regularly. ",
+      title: "Group Fitness Fanatic",
+    },
+  ];
+
+  const [currentTestimonialIndex, setCurrentTestimonialIndex] = useState(0);
+
+  const nextTestimonial = () => {
+    setCurrentTestimonialIndex(
+      (currentTestimonialIndex + 1) % testimonials.length
+    );
+  };
+
+  const previousTestimonial = () => {
+    setCurrentTestimonialIndex(
+      (currentTestimonialIndex - 1 + testimonials.length) % testimonials.length
+    );
+  };
+
+  // Handel Video Status
+  const [video, setVideo] = useState(false);
 
   return (
     <div>
@@ -44,7 +84,7 @@ const Home = () => {
             Build Perfect body Shape for good and Healthy life.
           </h2>
           <Button>
-            <Link to="/login" className="md:px-2">
+            <Link to="/dashboard" className="md:px-2">
               Become A Member
             </Link>
           </Button>
@@ -52,11 +92,18 @@ const Home = () => {
         {/* Play button */}
         <div className="relative py-10 flex justify-end">
           <div className="cursor-pointer relative bg-main h-16 w-16 lg:h-20 lg:w-20  rounded-full flex items-center justify-center mx-6 md:mx-14 lg:mx-20  ">
-            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-main opacity-75"></span>
+            <span
+              onClick={() => {
+                setVideo(!video);
+              }}
+              className="animate-ping absolute inline-flex h-full w-full rounded-full bg-main opacity-75"
+            ></span>
             <FaPlay className="text-white text-[20px]" />
           </div>
         </div>
       </div>
+      {/* Video */}
+      {video && <HeroVideo video={video} setVideo={setVideo}></HeroVideo>}
       {/* About Section */}
       <div className="my-20 lg:flex items-center justify-between xl:my-40">
         <div className="px-5 lg:w-1/2">
@@ -87,7 +134,7 @@ const Home = () => {
           </p>
           <div className="my-10">
             <Button>
-              <Link to="/login" className="md:px-2">
+              <Link to="/dashboard" className="md:px-2">
                 Become A Member
               </Link>
             </Button>
@@ -111,7 +158,7 @@ const Home = () => {
             ></SectionHead>
             <div className="lg:w-3/12">
               <Button>
-                <Link to="/login" className="md:px-2">
+                <Link to="/dashboard" className="md:px-2">
                   Become A Member
                 </Link>
               </Button>{" "}
@@ -138,7 +185,7 @@ const Home = () => {
           ></ServiceCard>
           <ServiceCard
             icon="fa-regular fa-chess-rook"
-            title="gym strategies" 
+            title="gym strategies"
             description="The sea freight service has grown considerably in recent years. We spend
             time getting to know..."
             path="/services"
@@ -166,10 +213,24 @@ const Home = () => {
             title="What Our Client Think About Our Gym"
           ></SectionHead>
           <div>
-            <ClientReviewCard></ClientReviewCard>
+            <ClientReviewCard
+              {...testimonials[currentTestimonialIndex]}
+            ></ClientReviewCard>
             <div className="flex  space-x-4 my-10">
-              <Icon IconName="fa-solid fa-arrow-left" color="main" size="xl" />
-              <Icon IconName="fa-solid fa-arrow-right" color="main" size="xl" />
+              <button onClick={previousTestimonial}>
+                <Icon
+                  IconName="fa-solid fa-arrow-left"
+                  color="main"
+                  size="xl"
+                />
+              </button>
+              <button onClick={nextTestimonial}>
+                <Icon
+                  IconName="fa-solid fa-arrow-right"
+                  color="main"
+                  size="xl"
+                />
+              </button>
             </div>
           </div>
         </div>
@@ -244,9 +305,21 @@ const Home = () => {
           </div>
         </div>
         <div className="md:flex justify-around">
-          <TrainnerCard image={team1}></TrainnerCard>
-          <TrainnerCard image={team2}></TrainnerCard>
-          <TrainnerCard image={team3}></TrainnerCard>
+          <TrainnerCard
+            name="Michael Johnson"
+            title="Certified Fitness Coach"
+            image={team1}
+          ></TrainnerCard>
+          <TrainnerCard
+            name="John Davis"
+            title="Strength and Conditioning Specialist"
+            image={team2}
+          ></TrainnerCard>
+          <TrainnerCard
+            name="David Martinez"
+            title="Personal Trainer and Nutrition Expert"
+            image={team3}
+          ></TrainnerCard>
         </div>
       </div>
       {/* Time Schedule */}

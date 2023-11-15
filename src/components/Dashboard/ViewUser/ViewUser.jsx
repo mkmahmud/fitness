@@ -11,6 +11,7 @@ import Filed from "../Button/Filed";
 import { useForm } from "react-hook-form";
 import DisabledFiled from "../Form/Input/DisabledFiled";
 import { useGetUserDetailsQuery } from "../../../redux/api/user/userSlice";
+import { useGetMembershipDetailsQuery } from "../../../redux/api/userMembership/userMembership";
 
 const ViewUser = () => {
   // Get User details
@@ -19,6 +20,9 @@ const ViewUser = () => {
 
   // Full User Details
   const { data: userDetails } = useGetUserDetailsQuery(id);
+
+  // Get Membership Details
+  const { data: membershipStatus } = useGetMembershipDetailsQuery(id);
 
   // Set Modal Status
   const dispatch = useDispatch();
@@ -35,7 +39,7 @@ const ViewUser = () => {
         <div className="absolute top-0 h-screen bg-[#00000030] w-full  inset-0 flex items-center justify-end ">
           <div className="bg-white h-screen p-6   w-full md:w-[80%]">
             <div className="flex justify-between">
-              <PageHead title="User Details"></PageHead>
+              <PageHead title="Details"></PageHead>
 
               <button
                 onClick={() => {
@@ -71,23 +75,31 @@ const ViewUser = () => {
                 </div>
                 <div className="w-full md:w-9/12  border-gray border-l  py-6">
                   <div className="grid grid-cols-1 md:grid-cols-3 py-4 px-4">
-                    <div className="p-2">
-                      <h2 className="text-xl  font-semibold">Total Paid</h2>
-                      <h1 className="text-xl font-bold">$ 100.00</h1>
-                    </div>
-                    <div className="p-2">
-                      <h2 className="text-xl  font-semibold">Total Students</h2>
-                      <h1 className="text-xl font-bold">23</h1>
-                    </div>
+                    {role === "trainer" && (
+                      <>
+                        <div className="p-2">
+                          <h2 className="text-xl  font-semibold">
+                            Total Students
+                          </h2>
+                          <h1 className="text-xl font-bold">23</h1>
+                        </div>
+                        <div className="p-2">
+                          <h2 className="text-xl  font-semibold">Total Paid</h2>
+                          <h1 className="text-xl font-bold">$ 100.00</h1>
+                        </div>
+                      </>
+                    )}
+                    {role === "user" && (
+                      <div className="p-2">
+                        <h2 className="text-xl  font-semibold">
+                          Recived Ammount
+                        </h2>
+                        <h1 className="text-xl font-bold">$ 600.00</h1>
+                      </div>
+                    )}
                     <div className="p-2">
                       <h2 className="text-xl  font-semibold">Total Days</h2>
                       <h1 className="text-xl font-bold">986</h1>
-                    </div>
-                    <div className="p-2">
-                      <h2 className="text-xl  font-semibold">
-                        Recived Ammount
-                      </h2>
-                      <h1 className="text-xl font-bold">$ 600.00</h1>
                     </div>
                   </div>
 
@@ -99,14 +111,25 @@ const ViewUser = () => {
                       ></DisabledFiled>
                       <DisabledFiled data={id} name="ID"></DisabledFiled>
                       <DisabledFiled data={email} name="Email"></DisabledFiled>
+
+                      {role === "user" && membershipStatus?.status ? (
+                        <DisabledFiled
+                          data={
+                            membershipStatus?.status ? "Active" : "InActive"
+                          }
+                          name="Membership"
+                          bg={membershipStatus?.status ? "lightGreen" : "main"}
+                          color="black"
+                        ></DisabledFiled>
+                      ) : (
+                        ""
+                      )}
+
                       <DisabledFiled
-                        data="Active"
-                        name="Membership"
-                        bg="lightGreen"
-                        color="black"
-                      ></DisabledFiled>
-                      <DisabledFiled
-                        data={userDetails?.user?.phoneNumber && userDetails?.user?.phoneNumber}
+                        data={
+                          userDetails?.user?.phoneNumber &&
+                          userDetails?.user?.phoneNumber
+                        }
                         name="Phone Number"
                       ></DisabledFiled>
                       <DisabledFiled

@@ -1,9 +1,12 @@
 import { useState } from "react";
-import profileImage from "../../../assets/dashboard/profile.png";
+
 import { Link, useNavigate } from "react-router-dom";
 import { getUserInfo, logOut } from "../../../service/storeUserInfo";
 import logo from "../../../assets/logo/logo.png";
-import { useCurrentUserQuery, useGetUserDetailsQuery } from "../../../redux/api/user/userSlice";
+import {
+  useCurrentUserQuery,
+  useGetUserDetailsQuery,
+} from "../../../redux/api/user/userSlice";
 const Topbar = ({ sidebar, setSidebar }) => {
   // Handel Profile Button
   const [profile, setProfile] = useState(false);
@@ -39,7 +42,7 @@ const Topbar = ({ sidebar, setSidebar }) => {
       </div>
       <div className="flex space-x-4 items-center ">
         <button className="border border-gray p-2 h-[40px] w-[40px]  ">
-          <i className="fa-solid fa-bell text-[20px] text-main"></i>
+          <i className="fa-solid fa-bell text-[20px] text-gray"></i>
         </button>
         <img
           onClick={() => {
@@ -59,7 +62,11 @@ const Topbar = ({ sidebar, setSidebar }) => {
               <li className="px-6 py-6 text-center  border-b border-gray flex items-center">
                 {" "}
                 <img
-                  src={data?.user?.image ? data?.user?.image : profileImage}
+                  src={
+                    userDetails?.user?.profilePhoto
+                      ? userDetails?.user?.profilePhoto
+                      : logo
+                  }
                   alt="Profile Image"
                   className="h-[40px] w-[40px] mx-4"
                 />

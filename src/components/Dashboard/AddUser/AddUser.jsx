@@ -6,6 +6,7 @@ import { useForm } from "react-hook-form";
 import Filed from "../Button/Filed";
 import { getUserInfo } from "../../../service/storeUserInfo";
 import { useCreateUserMutation } from "../../../redux/api/auth/authApi";
+import toast from "react-hot-toast";
 
 const AddUser = () => {
   // Create User Account
@@ -29,7 +30,7 @@ const AddUser = () => {
     try {
       const response = await createUser(data);
       if (response) {
-        console.log("User Created Successfully");
+        toast.success("User Added Successfully");
       }
     } catch (error) {
       console.log(error);
@@ -85,7 +86,9 @@ const AddUser = () => {
                       {...register("role")}
                     >
                       {roles.map((role, i) => (
-                        <option key={i} value={role}>{role}</option>
+                        <option key={i} value={role}>
+                          {role}
+                        </option>
                       ))}
                     </select>
                   </div>

@@ -20,13 +20,13 @@ const Footer = () => {
             <h2 className={footerHead}>COMPANY</h2>
             <ul className="mt-10">
               <li className={footerList}>
-                <Link to="/">About Us</Link>
+                <Link to="/about">About Us</Link>
               </li>
               <li className={footerList}>
                 <Link to="/">Privecy & policy</Link>
               </li>
               <li className={footerList}>
-                <Link to="/">Press & Blog</Link>
+                <Link to="/">Contact</Link>
               </li>
               <li className={footerList}>
                 <Link to="/">Company</Link>
@@ -36,32 +36,17 @@ const Footer = () => {
           <div className="mx-4 my-10">
             <h2 className={footerHead}>OPEN HOUR</h2>
             <ul className="mt-10">
-              <li className={footerList}>
-                <Link to="/">Monday 11am-7pm</Link>
-              </li>
-              <li className={footerList}>
-                <Link to="/">Monday 11am-7pm</Link>
-              </li>
-              <li className={footerList}>
-                <Link to="/">Monday 11am-7pm</Link>
-              </li>
-              <li className={footerList}>
-                <Link to="/">Monday 11am-7pm</Link>
-              </li>
+              <li className={footerList}>Monda-Thursday (11am-7pm)</li>
+              <li className={footerList}>Sunday (close)</li>
+              <li className={footerList}>Saturday (11am-7pm)</li>
             </ul>
           </div>
           <div className="mx-4 my-10">
             <h2 className={footerHead}>Resources</h2>
             <ul className="mt-10">
-              <li className={footerList}>
-                <Link to="/">Protien Insurance</Link>
-              </li>
-              <li className={footerList}>
-                <Link to="/">Trainners</Link>
-              </li>
-              <li className={footerList}>
-                <Link to="/">Car</Link>
-              </li>
+              <li className={footerList}>Protien Insurance</li>
+              <li className={footerList}>Trainners</li>
+              <li className={footerList}>Car</li>
             </ul>
           </div>
           <div className="mx-4 my-10">

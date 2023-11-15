@@ -67,11 +67,6 @@ const Profile = () => {
               />
             </div>
           </div>
-          <div className="mt-6 bg-white text-black px-4 py-6 flex items-center">
-            <div className="w-10/12">
-              <h2>Personal information</h2>
-            </div>
-          </div>
         </div>
       )}
     </div>
