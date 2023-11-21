@@ -78,7 +78,7 @@ const Home = () => {
             <SubHead color="white" title="With Patric Potter" />
           </div>
           <h2
-            className="text-white text-extraLarge md:text-[70px] md:leading-none md:w-[80%] xl:w-[70%] font-bold uppercase py-16"
+            className="text-white text-extraLarge md:text-[50px] md:leading-none md:w-[80%] xl:w-[70%] font-bold uppercase py-16"
             style={{ fontFamily: "'Teko', sans-serif" }}
           >
             Build Perfect body Shape for good and Healthy life.

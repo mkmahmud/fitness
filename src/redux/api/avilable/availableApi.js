@@ -9,6 +9,7 @@ export const extendedApiSlice = apiSlice.injectEndpoints({
           method: "GET",
         };
       },
+      providesTags: ["availabilities"],
     }),
     addAvailability: build.mutation({
       query: (data) => ({
